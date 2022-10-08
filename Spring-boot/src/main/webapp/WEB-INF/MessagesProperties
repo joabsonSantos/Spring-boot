@@ -1,3 +1,0 @@
-NotEmpty = "Possui um campo vazio, favor inserir dados".
-NotNull = "Possui um campo vazio, favor inserir dados".
-NotBlank = "Possui um campo vazio, favor inserir dados".
