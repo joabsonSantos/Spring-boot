@@ -9,7 +9,7 @@ import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name= "tbl_Produtos")
-public class Produto {
+public class Livro {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,11 +23,11 @@ public class Produto {
 	private Integer codigo;
 	private String foto;
 	
-	public Produto() {
+	public Livro() {
 		
 	}
 
-	public Produto(Long id, @NotBlank String nome, @NotBlank String descricao, Long estoque, @NotBlank Integer codigo) {
+	public Livro(Long id, @NotBlank String nome, @NotBlank String descricao, Long estoque, @NotBlank Integer codigo) {
 		super();
 		this.id = id;
 		this.nome = nome;

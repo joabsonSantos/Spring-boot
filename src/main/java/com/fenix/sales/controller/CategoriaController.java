@@ -23,8 +23,6 @@ import com.fenix.sales.repository.CategoriaRepository;
 public class CategoriaController {
 	@Autowired
 	CategoriaRepository categoriaRepository;
-	@Autowired
-	FileSaver fileSaver;
 	
 	@GetMapping("/admin/categoria")
 	public ModelAndView form(Categoria categoria) {
@@ -51,31 +49,28 @@ public class CategoriaController {
 		ModelAndView modelAndView = new ModelAndView("admin/listCategorias");
 		List<Categoria> categorias = categoriaRepository.findAll();
 		modelAndView.addObject("sacolaCategoria", categorias);
-		System.out.println("listar Categorias");
 		return modelAndView;
 	}
 	@GetMapping("/excluircategoria/{id}")
 	public ModelAndView excluirCategorias(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
-		ModelAndView modelAndView = new ModelAndView("redirect:/admin/listcategorias");
+		ModelAndView modelAndView = new ModelAndView("redirect:/admin/listCategorias");
 		Categoria categoria = categoriaRepository.findById(id).get();
 		categoriaRepository.delete(categoria);
 		redirectAttributes.addFlashAttribute("Mensagem", "Categoria excluida com sucesso");
-		System.out.println("Excluiu a categoria");
 		return modelAndView;
 	}
 
 	@GetMapping("/editarcategoria/{id}")
 	public ModelAndView editar(@PathVariable("id") Integer id, Categoria categoria, RedirectAttributes redirectAttributes) {
-		ModelAndView modelAndView = new ModelAndView("admin/categoriaAtualizar");
+		ModelAndView modelAndView = new ModelAndView("admin/atualizarCategoria");
 		categoria = categoriaRepository.getById(id);
-		System.out.println(categoria);
 		modelAndView.addObject("categ", categoria);
 		return modelAndView;
 	}
 
 	@PostMapping("/editarcategoria")
 	public ModelAndView update (@Valid Categoria categoria, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
-		ModelAndView modelAndView = new ModelAndView("redirect:/admin/listcategorias");
+		ModelAndView modelAndView = new ModelAndView("redirect:/admin/listCategorias");
 		
 		if(bindingResult.hasErrors()) {
 			return editar(categoria.getId(), categoria, redirectAttributes);

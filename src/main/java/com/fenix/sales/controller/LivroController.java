@@ -1,3 +1,4 @@
+package com.fenix.sales.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -6,10 +7,10 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.fenix.sales.entity.Produto;
+import com.fenix.sales.entity.Livro;
 import com.fenix.sales.infra.FileSaver;
 
-public class ProdutoController {
+public class LivroController {
 	ModelAndView modelAndView = new ModelAndView();
 	
 	@Autowired
@@ -24,14 +25,14 @@ public class ProdutoController {
 	}
 
 	@GetMapping("/cadastrarProduto")
-	public ModelAndView CadastrarProduto(Produto produto) {
+	public ModelAndView CadastrarProduto(Livro produto) {
 		modelAndView.setViewName("cadastrarProduto");
 		return modelAndView;
 	}
 
 
 	@PostMapping("/cadastro")
-	public ModelAndView Cadastrar(Produto produto,RedirectAttributes redirectAttributes, MultipartFile imagem) {
+	public ModelAndView Cadastrar(Livro produto,RedirectAttributes redirectAttributes, MultipartFile imagem) {
 		String foto = file.write("imagens-produtos", imagem);
 		produto.setFoto(foto);
 		modelAndView.setViewName("listarProdutos");
@@ -52,7 +53,7 @@ public class ProdutoController {
 	}
 	
 	@PostMapping("/Edicao")
-	public ModelAndView UpdateProduto(Produto produto, MultipartFile imagem) {
+	public ModelAndView UpdateProduto(Livro produto, MultipartFile imagem) {
 		if (!imagem.isEmpty()) {
 			file.remove(produto.getFoto());
 			String foto = file.write("imagens-produtos", imagem);
