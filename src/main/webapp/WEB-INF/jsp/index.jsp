@@ -11,6 +11,7 @@
 <title>Home</title>
 </head>
 <body>
-	<h1>Inicio</h1>
+	<%@ include file="header.jsp" %>
+	
 </body>
 </html>

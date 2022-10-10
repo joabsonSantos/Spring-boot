@@ -26,7 +26,7 @@ public class CategoriaController {
 	@Autowired
 	FileSaver fileSaver;
 	
-	@GetMapping("/admin/categoria")
+	@GetMapping("/admin/categorias")
 	public ModelAndView form(Categoria categoria) {
 		ModelAndView modelAndView = new ModelAndView("admin/formCategoria");
 		return modelAndView;
