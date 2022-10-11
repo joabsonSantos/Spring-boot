@@ -13,7 +13,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lista de Pessoas</title>
+<title>Lista de Categorias</title>
 
 <link rel="Stylesheet" href="/resources/css/listaPessoas.css">
 

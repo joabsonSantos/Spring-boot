@@ -8,9 +8,9 @@
 <head>
 <meta charset="UTF-8">
 <link href="/resources/css/produto.css" rel="stylesheet" type="text/css" />
-<title>Cadastrar Editora</title>
+<title>Cadastrar Categoria</title>
 </head>
 <body>
-	<h1>Cadastrar Editora</h1>
+	<h1>Cadastrar categoria</h1>
 </body>
 </html>
