@@ -8,7 +8,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "tbl_autores")
+@Table(name = "tbl_livros")
 public class Livro {
 
 	@Id

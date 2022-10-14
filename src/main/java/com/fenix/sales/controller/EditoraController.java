@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.fenix.sales.entity.Categoria;
 import com.fenix.sales.entity.Editora;
 import com.fenix.sales.repository.EditoraRepository;
 
@@ -30,7 +29,7 @@ public class EditoraController {
 		return modelAndView;
 	}
 	
-	@PostMapping("/admin/cadastareditora")
+	@PostMapping("/admin/cadastraeditora")
 	public ModelAndView create(@Valid Editora editora, BindingResult bindingResult, RedirectAttributes redirectAtributes) {
 		ModelAndView modelAndView = new ModelAndView("redirect:/admin/formEditora");
 		

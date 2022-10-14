@@ -8,10 +8,15 @@ public class IndexController {
 	
 	@GetMapping("/")
 	public ModelAndView Index() {
+		System.out.println("chegou aqui");
 		modelAndView.setViewName("index");
 		return modelAndView;
 	}
 	
-	
+	@GetMapping("/admin")
+	public ModelAndView admin() {
+		ModelAndView modelAndView = new ModelAndView("admin/index");
+		return modelAndView;
+	}
 
 }

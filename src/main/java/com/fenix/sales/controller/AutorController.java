@@ -1,7 +1,10 @@
 package com.fenix.sales.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,37 +23,37 @@ public class AutorController {
 
 	@GetMapping("/admin/autor")
 	public ModelAndView ListarAutores() {
-		modelAndView.setViewName("admin/listAutores");
+		modelAndView.setViewName("admin/formAutor");
 		return modelAndView;
 	}
 
-	@GetMapping("/admin/cadastrarAutor")
+	@GetMapping("/admin/cadastraAutor")
 	public ModelAndView CadastrarAutor(Autor Autor) {
-		modelAndView.setViewName("admin/cadastrarAutor");
+		modelAndView.setViewName("admin/formAutor");
 		return modelAndView;
 	}
 
 	@PostMapping("/admin/cadastro")
-	public ModelAndView Cadastrar(Autor Autor, RedirectAttributes redirectAttributes) {
-		modelAndView.setViewName("admin/listAutores");
+	public ModelAndView Cadastrar(@Valid Autor Autor,BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+		modelAndView.setViewName("admin/formAutor");
 		return modelAndView;
 	}
 
 	@GetMapping("/admin/ExcluirAutor/{id}")
 	public ModelAndView ExcluirAutor(@PathVariable Long id, RedirectAttributes redirectAttributes) {
-		modelAndView.setViewName("admin/listAutores");
+		modelAndView.setViewName("admin/formAutor");
 		return modelAndView;
 	}
 
 	@GetMapping("/admin/EditarAutor/{id}")
 	public ModelAndView EditarAutor(@PathVariable Long id, RedirectAttributes redirectAttributes) {
-		modelAndView.setViewName("admin/listAutores");
+		modelAndView.setViewName("admin/formAutor");
 		return modelAndView;
 	}
 
 	@PostMapping("/admin/Edicao")
 	public ModelAndView UpdateAutor(Autor Autor) {
-		modelAndView.setViewName("admin/listAutores");
+		modelAndView.setViewName("admin/formAutor");
 		return modelAndView;
 	}
 

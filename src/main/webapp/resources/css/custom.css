@@ -1,0 +1,86 @@
+
+
+.title {
+    font-size: 1em;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.shadow {
+    box-shadow: 0 5px 5px 0 rgb(0 0 0 / 16%), 0 2px 5px 0 rgb(0 0 0 / 23%);
+}
+
+.shadow-1 {
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 16%), 0 2px 5px 0 rgb(0 0 0 / 23%);
+}
+
+.btn-add {
+    border-radius: 100%;
+    padding: 5px;
+    background-color: rgb(5, 180, 5)
+}
+
+
+.table-custom thead {
+    background-color: var(--laranja);
+    font-size: 0.80em;
+}
+
+.table-custom td {
+    font-size: 0.85em;
+}
+
+.table-custom tbody tr td:nth-child(2) {
+    width: 30%;
+    padding: 0;
+}
+
+.table-custom .input-ped {
+    border: none;
+    outline: none;
+    width: 100%;
+    text-align: center;
+    padding: 2px;
+    background-color: var(--ligth);
+}
+
+.table-custom .input-ped:hover {
+    background-color: var(--ligth);
+}
+
+.table-custom tbody tr td:nth-child(1),
+.table-custom tbody tr td:nth-child(4),
+.table-custom tbody tr td:nth-child(5) {
+    background-color: rgba(128, 128, 128, 0.053);
+}
+
+
+.btn-edite {
+    background: url(/resources/img/pencil-3x.png) no-repeat center;
+    color: #000000;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border: none;
+    outline: none;
+}
+
+.btn-delete {
+    background: url(/resources/img/trash-3x.png) no-repeat center;
+    color: #000000;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border: none;
+    outline: none;
+}
+
+.main{
+    min-height: 90vh !important;
+}
+
+#footer {
+    position: relative !important;
+    top: 100px;
+    bottom: 0px;
+}

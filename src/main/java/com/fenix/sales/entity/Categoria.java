@@ -14,16 +14,15 @@ public class Categoria {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	@NotBlank
-	private String descricao;
-	private boolean ativo;
+	private String nome;
+	private boolean status;
 	
 	
-	public Categoria(Integer id, @NotBlank String descricao, boolean ativo) {
+	public Categoria(Integer id,String nome, boolean status) {
 		super();
 		this.id = id;
-		this.descricao = descricao;
-		this.ativo = ativo;
+		this.nome = nome;
+		this.status = status;
 	}
 
 
@@ -42,29 +41,29 @@ public class Categoria {
 	}
 
 
-	public String getDescricao() {
-		return descricao;
+	public String getnome() {
+		return nome;
 	}
 
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+	public void setnome(String nome) {
+		this.nome = nome;
 	}
 
 
-	public boolean isAtivo() {
-		return ativo;
+	public boolean isstatus() {
+		return status;
 	}
 
 
-	public void setAtivo(boolean ativo) {
-		this.ativo = ativo;
+	public void setstatus(boolean status) {
+		this.status = status;
 	}
 
 
 	@Override
 	public String toString() {
-		return "Categoria [id=" + id + ", descricao=" + descricao + ", ativo=" + ativo + "]";
+		return "Categoria [id=" + id + ", nome=" + nome + ", status=" + status + "]";
 	}
 	
 	

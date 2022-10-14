@@ -8,7 +8,7 @@
 			<head>
 				<meta charset="UTF-8">
 				<link rel="stylesheet" href="/resources/css/index.css">
-				<title>Cadastrar Livros</title>
+				<title>Cadastrar Autor</title>
 			</head>
 
 			<body>
@@ -23,8 +23,10 @@
 									<form>
 										<div class="row m-5 d-flex justify-content-center shadow-1">
 											<div class="col-sm-12 col-md-6 p-2 ">
-												<label for="categoria">Livro:</label>
-												<input type="text" class="form-control" id="">
+
+												<label for="nome">Nome:</label>
+												<input type="text" class="form-control" id="nome">
+
 												<select class="form-control mt-3">
 													<option>Ativo</option>
 													<option>Desabilitado</option>
@@ -59,7 +61,6 @@
 									</div>
 								</div>
 							</div>
-
 						</div>
 					</main>
 

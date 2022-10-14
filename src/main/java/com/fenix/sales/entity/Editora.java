@@ -16,13 +16,13 @@ public class Editora {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@NotBlank
-	private String descricao;
+	private String nome;
 	private boolean ativo;
 	
-	public Editora(Integer id, @NotBlank String descricao, boolean ativo) {
+	public Editora(Integer id, @NotBlank String nome, boolean ativo) {
 		super();
 		this.id = id;
-		this.descricao = descricao;
+		this.nome = nome;
 		this.ativo = ativo;
 	}
 
@@ -39,11 +39,11 @@ public class Editora {
 	}
 
 	public String getDescricao() {
-		return descricao;
+		return nome;
 	}
 
 	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+		this.nome = descricao;
 	}
 
 	public boolean isAtivo() {
@@ -56,7 +56,7 @@ public class Editora {
 
 	@Override
 	public String toString() {
-		return "Editora [id=" + id + ", descricao=" + descricao + ", ativo=" + ativo + "]";
+		return "Editora [id=" + id + ", nome=" + nome + ", ativo=" + ativo + "]";
 	}
 	
 
