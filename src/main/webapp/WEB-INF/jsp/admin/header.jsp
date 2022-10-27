@@ -27,8 +27,8 @@
                                 Cadastro
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="/admin/listCategorias">Cadastro de Categorias</a>
-                                <a class="dropdown-item" href="/admin/cadastraAutor">Cadastro de Autores</a>
+                                <a class="dropdown-item" href="/admin/categorias">Cadastro de Categorias</a>
+                                <a class="dropdown-item" href="/admin/autor">Cadastro de Autores</a>
                                 <a class="dropdown-item" href="/admin/editora">Cadastro de Editoras</a>
                             </div>
                         </li>

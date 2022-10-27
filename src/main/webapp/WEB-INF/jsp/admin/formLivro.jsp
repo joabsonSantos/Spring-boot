@@ -20,20 +20,54 @@
 						<div class="container bg-light mt-4 rounded shadow-1">
 							<div class="row">
 								<div class="container-fluid">
-									<form>
+									<form:form action="${s:mvcUrl('LC#cadastrarLivro').build()}" method="POST"
+										modelAttribute="livro" enctype="multipart/form-data">"
+										
 										<div class="row m-5 d-flex justify-content-center shadow-1">
 											<div class="col-sm-12 col-md-6 p-2 ">
-												<label for="categoria">Livro:</label>
-												<input type="text" class="form-control" id="">
-												<select class="form-control mt-3">
-													<option>Ativo</option>
-													<option>Desabilitado</option>
-												</select>
+												
+												<label>Titulo:</label>
+												<form:input  class="form-control" path="titulo"/>
+												
+												<label>Páginas:</label>
+												<form:input  class="form-control" path="paginas"/>
+												
+												<label>Autor:</label>
+												<form:select path="autor" class="form-control mt-3"> 
+													<form:option value="NONE"> -- SELECT--</form:option>
+													<form:options items= "${autores}" itemLabel="nome"/>
+												</form:select>
+												
+												<label>Editora:</label>
+												<form:select path="editora" class="form-control mt-3"> 
+													<form:option value="NONE"> -- SELECT--</form:option>
+													<form:options items= "${editoras}" itemLabel="descricao"/>
+												</form:select>
+												
+												<label>Foto:</label>
+												<input type="file"  class="form-control" name="foto"/>
+												
+												<label>Preço:</label>
+												<form:input  class="form-control" path="preco"/>
+												
+												<label>Destaque:</label>
+												<form:input  class="form-control" path="destaque"/>
+												
+												<label>Ativo:</label>
+												<form:input  class="form-control" path="ativo"/>
+												
+												<label>Categoria:</label>
+												<form:select path="categoria" class="form-control mt-3"> 
+													<form:option value="NONE"> -- SELECT--</form:option>
+													<form:options items= "${categorias}" itemLabel="nome"/>
+												</form:select>
+												
+												
 												<button class="btn btn-md btn-block btn-success mt-5 mb-5"
 													type="button">Cadastrar</button>
 											</div>
 										</div>
-									</form>
+									</form:form>
 								</div>
 							</div>
 

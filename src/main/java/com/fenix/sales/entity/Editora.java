@@ -8,26 +8,24 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name= "tbl_editora")
+@Table(name = "tbl_editora")
 public class Editora {
-
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@NotBlank
-	private String nome;
-	private boolean ativo;
-	
-	public Editora(Integer id, @NotBlank String nome, boolean ativo) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.ativo = ativo;
-	}
+	private String descricao;
+	private boolean status = true;
 
 	public Editora() {
+	}
+
+	public Editora(Integer id, @NotBlank String descricao, boolean status) {
 		super();
+		this.id = id;
+		this.descricao = descricao;
+		this.status = status;
 	}
 
 	public Integer getId() {
@@ -39,25 +37,19 @@ public class Editora {
 	}
 
 	public String getDescricao() {
-		return nome;
+		return descricao;
 	}
 
 	public void setDescricao(String descricao) {
-		this.nome = descricao;
+		this.descricao = descricao;
 	}
 
-	public boolean isAtivo() {
-		return ativo;
+	public boolean isStatus() {
+		return status;
 	}
 
-	public void setAtivo(boolean ativo) {
-		this.ativo = ativo;
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
-
-	@Override
-	public String toString() {
-		return "Editora [id=" + id + ", nome=" + nome + ", ativo=" + ativo + "]";
-	}
-	
 
 }

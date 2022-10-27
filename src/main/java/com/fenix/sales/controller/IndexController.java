@@ -7,16 +7,17 @@ public class IndexController {
 	ModelAndView modelAndView = new ModelAndView();
 	
 	@GetMapping("/")
-	public ModelAndView Index() {
-		System.out.println("chegou aqui");
-		modelAndView.setViewName("index");
-		return modelAndView;
-	}
+    public ModelAndView index() {
+        modelAndView.setViewName("/index");
+        return modelAndView;
+    }
+	
+	
 	
 	@GetMapping("/admin")
-	public ModelAndView admin() {
-		ModelAndView modelAndView = new ModelAndView("admin/index");
-		return modelAndView;
-	}
+    public ModelAndView admin() {
+        modelAndView.setViewName("/index");
+        return modelAndView;
+    }
 
 }

@@ -18,11 +18,12 @@ public class Categoria {
 	private boolean status;
 	
 	
-	public Categoria(Integer id,String nome, boolean status) {
-		super();
+	
+	public Categoria(Integer id, String nome, boolean status, boolean categoria) {
 		this.id = id;
 		this.nome = nome;
 		this.status = status;
+		
 	}
 
 
@@ -41,16 +42,6 @@ public class Categoria {
 	}
 
 
-	public String getnome() {
-		return nome;
-	}
-
-
-	public void setnome(String nome) {
-		this.nome = nome;
-	}
-
-
 	public boolean isstatus() {
 		return status;
 	}
@@ -61,11 +52,27 @@ public class Categoria {
 	}
 
 
-	@Override
-	public String toString() {
-		return "Categoria [id=" + id + ", nome=" + nome + ", status=" + status + "]";
+	public String getNome() {
+		return nome;
 	}
+
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+
+	public boolean isStatus() {
+		return status;
+	}
+
+
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+
+
 	
-	
+
 
 }

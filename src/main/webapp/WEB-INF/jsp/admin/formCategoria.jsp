@@ -9,7 +9,8 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/resources/css/index.css">
-<title>Cadastrar Categoria</title>
+
+<title>Cadastrar Autor</title>
 </head>
 
 <body>
@@ -21,27 +22,25 @@
 		<div class="container bg-light mt-4 rounded shadow-1">
 			<div class="row">
 				<div class="container-fluid">
-					<form>
+					<form:form action="${s:mvcUrl('CC#categioraCadastrar').build()}"
+						method="POST" modelAttribute="categoria">
 						<div class="row m-5 d-flex justify-content-center shadow-1">
 							<div class="col-sm-12 col-md-6 p-2 ">
-								<form:form action="${s:mvcUrl('CC#cadastra').build()}"
-									method="POST" modelAttribute="categoria">
 
-									<label for="">Categoria:</label>
-									<form:input path="nome" class="form-control" />
+								<label for="nome">Nome:</label>
+								<form:input path="nome" class="form-control" />
 
-									<form:select path="status" class="form-control mt-3">
-										<form:option value="true" label="Ativo" />
-										<form:option value="false" label="Desabilitado" />
-									</form:select>
 
-									<button class="btn btn-md btn-block btn-success mt-5 mb-5"
-										type="submit">Cadastrar</button>
+								<form:select path="status" class="form-control mt-3">
+									<form:option value="true" label="Ativo" />
+									<form:option value="false" label="Inativo" />
+								</form:select>
 
-								</form:form>
+								<button class="btn btn-md btn-block btn-success mt-5 mb-5"
+									type="submit">Cadastrar</button>
 							</div>
 						</div>
-					</form>
+					</form:form>
 				</div>
 			</div>
 
@@ -66,7 +65,8 @@
 										<td>${reg.nome}</td>
 										<td>${reg.status}</td>
 										<td><button class="btn-edite"></button></td>
-										<td><button class="btn-delete"></button></td>
+										<!--<td><button class="btn-delete"></button></td> -->
+										<td><a class="btn-excluir" href="${s:mvcUrl('CC#ExcluirCategoria').arg(0, reg.id).build()}">Excluir</a></td>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -81,25 +81,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

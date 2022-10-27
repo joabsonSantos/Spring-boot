@@ -5,7 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "tbl_autores")
@@ -14,24 +13,29 @@ public class Autor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@NotBlank
+
 	private String nome;
-	@NotBlank
-	private Boolean status;
+
+	private boolean status = false;
+
+	
 
 	public Autor() {
 
 	}
 
-	public Autor(Long id, String nome, Boolean status) {
+	public Autor(Long id, String nome, boolean status) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.status = status;
+		
 	}
 
 
-
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
 
 	public Long getId() {
 		return id;

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.fenix.sales.entity.Autor;
 import com.fenix.sales.entity.Editora;
 import com.fenix.sales.repository.EditoraRepository;
 
@@ -21,6 +22,7 @@ public class EditoraController {
 	
 	@Autowired
 	EditoraRepository editoraRepository;
+	ModelAndView modelAndView = new ModelAndView();
 	
 	
 	@GetMapping("/admin/editora")
@@ -30,8 +32,8 @@ public class EditoraController {
 	}
 	
 	@PostMapping("/admin/cadastraeditora")
-	public ModelAndView create(@Valid Editora editora, BindingResult bindingResult, RedirectAttributes redirectAtributes) {
-		ModelAndView modelAndView = new ModelAndView("redirect:/admin/formEditora");
+	public ModelAndView createEditora(@Valid Editora editora, BindingResult bindingResult, RedirectAttributes redirectAtributes) {
+		ModelAndView modelAndView = new ModelAndView("redirect:/admin/editora");
 		
 		if(bindingResult.hasErrors()) {
 			return form(editora);
@@ -48,16 +50,16 @@ public class EditoraController {
 		modelAndView.addObject("sacolaEditora", editoras);
 		return modelAndView;
 	}
-	@GetMapping("/excluireditora/{id}")
-	public ModelAndView excluirEditoras(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
-		ModelAndView modelAndView = new ModelAndView("redirect:/admin/listEditoras");
-		Editora editora = editoraRepository.findById(id).get();
-		editoraRepository.delete(editora);
-		redirectAttributes.addFlashAttribute("Mensagem", "Editora excluida com sucesso");
+	@GetMapping("/admin/ExcluirEditora/{id}")
+	public ModelAndView ExcluirEditora(@PathVariable Integer id, RedirectAttributes redirectAttributes) {
+	    modelAndView.setViewName("redirect:/admin/editora");
+	    Editora editora = editoraRepository.findById(id).get();
+	    editora.setStatus(false);
+        editoraRepository.save(editora);
 		return modelAndView;
 	}
 
-	@GetMapping("/editareditora/{id}")
+	@GetMapping("/admin/editareditora/{id}")
 	public ModelAndView editar(@PathVariable("id") Integer id, Editora editora, RedirectAttributes redirectAttributes) {
 		ModelAndView modelAndView = new ModelAndView("admin/atualizarEditora");
 		editora = editoraRepository.getById(id);

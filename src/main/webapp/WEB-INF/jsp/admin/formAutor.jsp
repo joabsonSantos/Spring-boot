@@ -1,70 +1,83 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-	<!-- Import da taglib -->
-	<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-		<%@ taglib uri="http://www.springframework.org/tags" prefix="s" %>
-			<!DOCTYPE html>
-			<html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<!DOCTYPE html>
+<html>
 
-			<head>
-				<meta charset="UTF-8">
-				<link rel="stylesheet" href="/resources/css/index.css">
-				<title>Cadastrar Autor</title>
-			</head>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/resources/css/index.css">
 
-			<body>
+<title>Cadastrar Autor</title>
+</head>
 
-				<%@ include file="header.jsp" %>
+<body>
 
-					<main class="main mb-5">
+	<%@ include file="header.jsp"%>
 
-						<div class="container bg-light mt-4 rounded shadow-1">
-							<div class="row">
-								<div class="container-fluid">
-									<form>
-										<div class="row m-5 d-flex justify-content-center shadow-1">
-											<div class="col-sm-12 col-md-6 p-2 ">
+	<main class="main mb-5">
 
-												<label for="nome">Nome:</label>
-												<input type="text" class="form-control" id="nome">
+		<div class="container bg-light mt-4 rounded shadow-1">
+			<div class="row">
+				<div class="container-fluid">
+					<form:form action="${s:mvcUrl('AC#Cadastrar').build()}"
+						method="POST" modelAttribute="autor">
+						<div class="row m-5 d-flex justify-content-center shadow-1">
+							<div class="col-sm-12 col-md-6 p-2 ">
 
-												<select class="form-control mt-3">
-													<option>Ativo</option>
-													<option>Desabilitado</option>
-												</select>
-												<button class="btn btn-md btn-block btn-success mt-5 mb-5"
-													type="button">Cadastrar</button>
-											</div>
-										</div>
-									</form>
-								</div>
-							</div>
+								<label for="nome">Nome:</label>
+								<form:input path="nome" class="form-control" />
 
-							<div class="row">
-								<div class="container w-100 m-5 shadow-1">
-									<h3 class="text-center p-2">Categorias cadastradas</h3>
-									<div class="container-fluid  table-responsive-md">
-										<table class="table table-sm table-hover table-bordered text-center">
-											<thead class="thead-dark">
-												<th colspan="3">Nome:</th>
-												<th>Editar</th>
-												<th>Excluir</th>
-											</thead>
 
-											<tbody>
-												<tr>
-													<td colspan="3">teste</td>
-													<td><button class="btn-edite"></button></td>
-													<td><button class="btn-delete"></button></td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</div>
+								<form:select path="status" class="form-control mt-3">
+									<form:option value="true" label="Ativo" />
+									<form:option value="false" label="Inativo" />
+								</form:select>
+
+								<button class="btn btn-md btn-block btn-success mt-5 mb-5"
+									type="submit">Cadastrar</button>
 							</div>
 						</div>
-					</main>
+					</form:form>
+				</div>
+			</div>
 
-					<%@ include file="footer.jsp" %>
-			</body>
+			<div class="row">
+				<div class="container w-100 m-5 shadow-1">
+					<h3 class="text-center p-2">Categorias cadastradas</h3>
+					<div class="container-fluid  table-responsive-md">
+						<table
+							class="table table-sm table-hover table-bordered text-center">
+							<thead class="thead-dark">
+								<tr>
+									<th>Nome:</th>
+									<th>Status:</th>
+									<th>Editar</th>
+									<th>Excluir</th>
+								</tr>
+							</thead>
 
-			</html>
+							<tbody>
+								<c:forEach items="${registros}" var="reg">
+									<tr>
+										<td>${reg.nome}</td>
+										<td>${reg.status}</td>
+										<td><button class="btn-edite"></button></td>
+										<!--<td><button class="btn-delete"></button></td> -->
+										<td><a class="btn-excluir" href="${s:mvcUrl('AC#ExcluirAutor').arg(0, reg.id).build()}">Excluir</a></td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<%@ include file="footer.jsp"%>
+</body>
+
+</html>
