@@ -22,7 +22,7 @@
 		<div class="container bg-light mt-4 rounded shadow-1">
 			<div class="row">
 				<div class="container-fluid">
-					<form:form action="${s:mvcUrl('EC#createEditora').build()}"
+					<form:form action="${s:mvcUrl('EC#editoraCadastra').build()}"
 						method="POST" modelAttribute="editora">
 						<div class="row m-5 d-flex justify-content-center shadow-1">
 							<div class="col-sm-12 col-md-6 p-2 ">

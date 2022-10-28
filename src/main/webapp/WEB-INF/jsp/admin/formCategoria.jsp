@@ -10,7 +10,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/resources/css/index.css">
 
-<title>Cadastrar Autor</title>
+<title>Cadastrar Categorias</title>
 </head>
 
 <body>
@@ -29,6 +29,12 @@
 
 								<label for="nome">Nome:</label>
 								<form:input path="nome" class="form-control" />
+								<div class="alert alert-danger mt-2">
+									<form:errors path="nome" />
+								</div>
+								<%-- 								<c:if test="${}"> --%>
+
+								<%-- 								</c:if> --%>
 
 
 								<form:select path="status" class="form-control mt-3">
@@ -55,7 +61,7 @@
 									<th>Nome:</th>
 									<th>Status:</th>
 									<th>Editar</th>
-									<th>Excluir</th>
+									<th>Desativar / Ativar</th>
 								</tr>
 							</thead>
 
@@ -65,8 +71,18 @@
 										<td>${reg.nome}</td>
 										<td>${reg.status}</td>
 										<td><button class="btn-edite"></button></td>
-										<!--<td><button class="btn-delete"></button></td> -->
-										<td><a class="btn-excluir" href="${s:mvcUrl('CC#ExcluirCategoria').arg(0, reg.id).build()}">Excluir</a></td>
+
+										<c:if test="${reg.status}">
+											<td><a class="btn-excluir"
+												href="${s:mvcUrl('CC#ExcluirCategoria').arg(0, reg.id).build()}">Desativar</a>
+											</td>
+										</c:if>
+										<c:if test="${!reg.status}">
+											<td><a class="btn-excluir"
+												href="${s:mvcUrl('CC#AtivarCategoria').arg(0, reg.id).build()}">Ativar</a>
+											</td>
+										</c:if>
+
 									</tr>
 								</c:forEach>
 							</tbody>
