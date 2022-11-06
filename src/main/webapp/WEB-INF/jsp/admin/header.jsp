@@ -27,9 +27,10 @@
                                 Cadastro
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="/admin/livros">Cadastro de Livros</a>
                                 <a class="dropdown-item" href="/admin/categorias">Cadastro de Categorias</a>
-                                <a class="dropdown-item" href="/admin/autor">Cadastro de Autores</a>
-                                <a class="dropdown-item" href="/admin/editora">Cadastro de Editoras</a>
+                                <a class="dropdown-item" href="/admin/autores">Cadastro de Autores</a>
+                                <a class="dropdown-item" href="/admin/editoras">Cadastro de Editoras</a>
                             </div>
                         </li>
                     </ul>
@@ -40,7 +41,8 @@
                                 Edição
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="/admin/categoria">Editar Categorias</a>
+                            	<a class="dropdown-item" href="/admin/livros">Editar Livros</a>
+                                <a class="dropdown-item" href="/admin/EditarCategoria">Editar Categorias</a>
                                 <a class="dropdown-item" href="/admin/autor">Editar Autores</a>
                                 <a class="dropdown-item" href="/admin/editora">Editar Editoras</a>
                             </div>

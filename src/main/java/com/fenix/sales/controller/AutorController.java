@@ -9,7 +9,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fenix.sales.entity.Autor;
-import com.fenix.sales.entity.Categoria;
 import com.fenix.sales.infra.FileSaver;
 import com.fenix.sales.repository.AutorRepository;
 
@@ -23,7 +22,7 @@ public class AutorController {
 	@Autowired
 	FileSaver file;
 
-	@GetMapping("/admin/autor")
+	@GetMapping("/admin/autores")
 	public ModelAndView ListarAutores(Autor autor) {
 		modelAndView.setViewName("admin/formAutor");
 		modelAndView.addObject("registros", autorRepository.findAll());
@@ -45,7 +44,7 @@ public class AutorController {
 
 	@GetMapping("/admin/ExcluirAutor/{id}")
 	public ModelAndView ExcluirAutor(@PathVariable Long id, RedirectAttributes redirectAttributes) {
-	    modelAndView.setViewName("redirect:/admin/autor");
+	    modelAndView.setViewName("redirect:/admin/autores");
 	    Autor autor = autorRepository.findById(id).get();
 	    autor.setStatus(false);
         autorRepository.save(autor);

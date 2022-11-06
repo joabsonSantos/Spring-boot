@@ -84,3 +84,7 @@
     top: 100px;
     bottom: 0px;
 }
+
+.disabled{
+	display: none;
+}

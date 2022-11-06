@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.fenix.sales.entity.Autor;
-import com.fenix.sales.entity.Categoria;
 import com.fenix.sales.entity.Livro;
 import com.fenix.sales.repository.AutorRepository;
 import com.fenix.sales.repository.CategoriaRepository;
@@ -33,17 +31,24 @@ public class LivroController {
 	EditoraRepository editoraRepository;
 	
 	
-	@GetMapping("/admin/cadastrarLivros")
-	public ModelAndView livros(Livro livro) {
-		ModelAndView modelAndView = new ModelAndView("admin/formLivro");
-		modelAndView.addObject("categorias", categoriaRepository.findAll());
-		modelAndView.addObject("autores", autorRepository.findAll());
-		modelAndView.addObject("editoras", editoraRepository.findAll());
+	@GetMapping("/admin/livros")
+	public ModelAndView ListarLivros(Livro livro) {
+		modelAndView.setViewName("admin/formLivro");
+		modelAndView.addObject("registros", livroRepository.findAll());
 		return modelAndView;
 	}
 	
-	@PostMapping("/admin/postcadastrarLivros")
-	public ModelAndView cadastrarLivro(@Valid Livro livro, BindingResult bindingResult, RedirectAttributes redirectAtributes) {
+//	@GetMapping("/admin/cadastrarLivros")
+//	public ModelAndView livros(Livro livro) {
+//		ModelAndView modelAndView = new ModelAndView("admin/formLivro");
+//		modelAndView.addObject("categorias", categoriaRepository.findAll());
+//		modelAndView.addObject("autores", autorRepository.findAll());
+//		modelAndView.addObject("editoras", editoraRepository.findAll());
+//		return modelAndView;
+//	}
+	
+	@PostMapping("/admin/cadastrarLivro")
+	public ModelAndView cadastrarLivro(@Valid Livro livro) {
 		ModelAndView modelAndView = new ModelAndView("redirect:/admin/formLivros");	
 		return modelAndView;
 	}

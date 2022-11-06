@@ -22,14 +22,14 @@
 		<div class="container bg-light mt-4 rounded shadow-1">
 			<div class="row">
 				<div class="container-fluid">
-					<form:form action="${s:mvcUrl('CC#categioraCadastrar').build()}"
+					<form:form action="${s:mvcUrl('CC#categoriaCadastrar').build()}"
 						method="POST" modelAttribute="categoria">
 						<div class="row m-5 d-flex justify-content-center shadow-1">
 							<div class="col-sm-12 col-md-6 p-2 ">
 
 								<label for="nome">Nome:</label>
 								<form:input path="nome" class="form-control" />
-								<div class="alert alert-danger mt-2">
+								<div class="alert alert-danger mt-2 disabled">
 									<form:errors path="nome" />
 								</div>
 								<%-- 								<c:if test="${}"> --%>
@@ -70,7 +70,8 @@
 									<tr>
 										<td>${reg.nome}</td>
 										<td>${reg.status}</td>
-										<td><button class="btn-edite"></button></td>
+										<td><a class="btn-editee" href="${s:mvcUrl('CC#EditarCategoria').arg(0, reg.id).build()}">Editar</a></td>
+
 
 										<c:if test="${reg.status}">
 											<td><a class="btn-excluir"

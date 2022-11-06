@@ -5,7 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name= "tbl_categorias")
@@ -14,13 +13,13 @@ public class Categoria {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	@NotEmpty
+
 	private String nome;
 	private boolean status;
 	
 	
 	
-	public Categoria(Integer id, String nome, boolean status, boolean categoria) {
+	public Categoria(Integer id, String nome, boolean status) {
 		this.id = id;
 		this.nome = nome;
 		this.status = status;
@@ -43,12 +42,12 @@ public class Categoria {
 	}
 
 
-	public boolean isstatus() {
+	public boolean isStatus() {
 		return status;
 	}
 
 
-	public void setstatus(boolean status) {
+	public void setStatus(boolean status) {
 		this.status = status;
 	}
 
@@ -63,16 +62,13 @@ public class Categoria {
 	}
 
 
-	public boolean isStatus() {
-		return status;
+	@Override
+	public String toString() {
+		return "Categoria [id=" + id + ", nome=" + nome + ", status=" + status + "]";
 	}
 
 
-	public void setStatus(boolean status) {
-		this.status = status;
-	}
-
-
+	
 	
 
 
