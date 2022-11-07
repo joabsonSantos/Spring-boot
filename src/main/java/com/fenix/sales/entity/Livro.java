@@ -16,14 +16,14 @@ public class Livro {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@NotBlank
+	// @NotBlank
 	private String titulo;
-	@NotNull
+	// @NotNull
 	private Integer paginas;
-	@NotNull
+	// @NotNull
 	@OneToOne
 	private Autor autor;
-	@NotNull
+	// @NotNull
 	@OneToOne
 	private Editora editora;
 	private String foto;
@@ -32,10 +32,28 @@ public class Livro {
 	private boolean ativo;
 	@OneToOne
 	private Categoria categoria;
-	
-	
-	public Livro(Long id, @NotBlank String titulo, @NotNull Integer paginas, @NotNull Autor autor,
-			@NotNull Editora editora, String foto, double preco, boolean destaque, boolean ativo, Categoria categoria) {
+
+//	public Livro(Long id, @NotBlank String titulo, @NotNull Integer paginas, @NotNull Autor autor,
+//			@NotNull Editora editora, String foto, double preco, boolean destaque, boolean ativo, Categoria categoria) {
+//		super();
+//		this.id = id;
+//		this.titulo = titulo;
+//		this.paginas = paginas;
+//		this.autor = autor;
+//		this.editora = editora;
+//		this.foto = foto;
+//		this.preco = preco;
+//		this.destaque = destaque;
+//		this.ativo = ativo;
+//		this.categoria = categoria;
+//	}
+
+	public Livro() {
+
+	}
+
+	public Livro(Long id, String titulo, Integer paginas, Autor autor, Editora editora, String foto, double preco,
+			boolean destaque, boolean ativo, Categoria categoria) {
 		super();
 		this.id = id;
 		this.titulo = titulo;
@@ -48,113 +66,86 @@ public class Livro {
 		this.ativo = ativo;
 		this.categoria = categoria;
 	}
-	
-
-	public Livro() {
-		super();
-	}
-
-
 
 	public Long getId() {
 		return id;
 	}
 
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
 
 	public String getTitulo() {
 		return titulo;
 	}
 
-
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
-
 
 	public Integer getPaginas() {
 		return paginas;
 	}
 
-
 	public void setPaginas(Integer paginas) {
 		this.paginas = paginas;
 	}
-
 
 	public Autor getAutor() {
 		return autor;
 	}
 
-
 	public void setAutor(Autor autor) {
 		this.autor = autor;
 	}
-
 
 	public Editora getEditora() {
 		return editora;
 	}
 
-
 	public void setEditora(Editora editora) {
 		this.editora = editora;
 	}
-
 
 	public String getFoto() {
 		return foto;
 	}
 
-
 	public void setFoto(String foto) {
 		this.foto = foto;
 	}
-
 
 	public double getPreco() {
 		return preco;
 	}
 
-
 	public void setPreco(double preco) {
 		this.preco = preco;
 	}
-
 
 	public boolean isDestaque() {
 		return destaque;
 	}
 
-
 	public void setDestaque(boolean destaque) {
 		this.destaque = destaque;
 	}
-
 
 	public boolean isAtivo() {
 		return ativo;
 	}
 
-
 	public void setAtivo(boolean ativo) {
 		this.ativo = ativo;
 	}
-
 
 	public Categoria getCategoria() {
 		return categoria;
 	}
 
-
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
-
 
 	@Override
 	public String toString() {
@@ -162,7 +153,5 @@ public class Livro {
 				+ editora + ", foto=" + foto + ", preco=" + preco + ", destaque=" + destaque + ", ativo=" + ativo
 				+ ", categoria=" + categoria + "]";
 	}
-
-
 
 }

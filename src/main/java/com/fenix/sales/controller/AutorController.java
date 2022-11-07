@@ -37,7 +37,7 @@ public class AutorController {
 
 	@PostMapping("/admin/cadastro")
 	public ModelAndView Cadastrar(Autor autor) {
-		modelAndView.setViewName("redirect:/admin/autor");
+		modelAndView.setViewName("redirect:/admin/autores");
 		autorRepository.save(autor);
 		return modelAndView;
 	}

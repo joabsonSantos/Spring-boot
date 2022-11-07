@@ -34,21 +34,21 @@ public class LivroController {
 	@GetMapping("/admin/livros")
 	public ModelAndView ListarLivros(Livro livro) {
 		modelAndView.setViewName("admin/formLivro");
-		modelAndView.addObject("registros", livroRepository.findAll());
+		modelAndView.addObject("categorias", categoriaRepository.findAll());
+		modelAndView.addObject("autores", autorRepository.findAll());
+		modelAndView.addObject("editoras", editoraRepository.findAll());
 		return modelAndView;
 	}
 	
-//	@GetMapping("/admin/cadastrarLivros")
-//	public ModelAndView livros(Livro livro) {
-//		ModelAndView modelAndView = new ModelAndView("admin/formLivro");
-//		modelAndView.addObject("categorias", categoriaRepository.findAll());
-//		modelAndView.addObject("autores", autorRepository.findAll());
-//		modelAndView.addObject("editoras", editoraRepository.findAll());
-//		return modelAndView;
-//	}
+	@GetMapping("/admin/cadastrarLivros")
+	public ModelAndView livros(Livro livro) {
+		ModelAndView modelAndView = new ModelAndView("/admin/livros");
+		livroRepository.save(livro);
+		return modelAndView;
+	}
 	
 	@PostMapping("/admin/cadastrarLivro")
-	public ModelAndView cadastrarLivro(@Valid Livro livro) {
+	public ModelAndView cadastrarLivro(Livro livro) {
 		ModelAndView modelAndView = new ModelAndView("redirect:/admin/formLivros");	
 		return modelAndView;
 	}
@@ -76,7 +76,7 @@ public class LivroController {
 	}
 
 	@PostMapping("/editarLivro")
-	public ModelAndView update (@Valid Livro livro, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+	public ModelAndView update (Livro livro, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 		ModelAndView modelAndView = new ModelAndView("redirect:/admin/listLivros");
 		return modelAndView;
 	}
