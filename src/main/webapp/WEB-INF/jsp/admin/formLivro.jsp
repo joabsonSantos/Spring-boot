@@ -37,22 +37,30 @@
 							</thead>
 
 							<tbody>
-								<c:forEach items="${registros}" var="reg">
+								<c:forEach items="${livros}" var="reg">
 									<tr>
-										<td>${reg.nome}</td>
-										<%--<td>${reg.status}</td> --%>
+										<td>${reg.titulo}</td>
+										<td>${reg.paginas}</td>
+										<td>${reg.autor}</td>
+										<td>${reg.editora}</td>
+										<td>${reg.foto}</td>
+										<td>${reg.preco}</td>
+										<td>${reg.destaque}</td>
+										<td>${reg.status}</td>
+										<td>${reg.categoria}</td>
+										
 										<td><button class="btn-edite"></button></td>
 
-										<c:if test="${reg.status}">
-											<td><a class="btn-excluir"
-												href="${s:mvcUrl('CC#ExcluirCategoria').arg(0, reg.id).build()}">Desativar</a>
-											</td>
-										</c:if>
-										<c:if test="${!reg.status}">
-											<td><a class="btn-excluir"
-												href="${s:mvcUrl('CC#AtivarCategoria').arg(0, reg.id).build()}">Ativar</a>
-											</td>
-										</c:if>
+<%-- 										<c:if test="${reg.status}"> --%>
+<!-- 											<td><a class="btn-excluir" -->
+<%-- 												href="${s:mvcUrl('CC#ExcluirCategoria').arg(0, reg.id).build()}">Desativar</a> --%>
+<!-- 											</td> -->
+<%-- 										</c:if> --%>
+<%-- 										<c:if test="${!reg.status}"> --%>
+<!-- 											<td><a class="btn-excluir" -->
+<%-- 												href="${s:mvcUrl('CC#AtivarCategoria').arg(0, reg.id).build()}">Ativar</a> --%>
+<!-- 											</td> -->
+<%-- 										</c:if> --%>
 
 									</tr>
 								</c:forEach>
@@ -96,8 +104,9 @@
 									<form:options items="${categorias}" itemLabel="nome" />
 								</form:select>
 									
-								<label class="mt-3">Foto:</label> <input type="file" class="form-control"
-									name="foto" />
+								<label class="mt-3">Foto:</label> 
+								<input type="file" class="form-control"
+									name="foto1" />
 									 
 								<label class="mt-3">Preço:</label>
 								<form:input class="form-control" path="preco" />
@@ -105,8 +114,8 @@
 								<label class="mt-3">Destaque:</label>
 								<form:input class="form-control" path="destaque" />
 
-								<label class="mt-3">Ativo:</label>
-								<form:input class="form-control" path="ativo" />
+<!-- 								<label class="mt-3">Ativo:</label> -->
+<%-- 								<form:input class="form-control" path="status" /> --%>
 
 						
 
