@@ -19,9 +19,9 @@
 </head>
 
 <body class="">
-	<%@ include file="admin/header.jsp" %>
+	<%@ include file="header.jsp" %>
 	
-	<%@ include file="admin/main.jsp" %>
+	<%@ include file="main.jsp" %>
 	
 	<%@ include file="admin/footer.jsp" %>
 	
