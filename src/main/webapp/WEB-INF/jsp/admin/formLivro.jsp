@@ -29,38 +29,51 @@
 							class="table table-sm table-hover table-bordered text-center">
 							<thead class="thead-dark">
 								<tr>
-									<th>Nome:</th>
-									<th>Status:</th>
+									<th>Foto</th>
+									<th>Titulo</th>
+									<th>Paginas</th>
+									<th>Autor</th>
+									<th>Editora</th>
+									<th>Valor</th>
+									<th>Destaque ?</th>
+									<th>Status</th>
+									<th>Categoria</th>
 									<th>Editar</th>
-									<th>Desativar / Ativar</th>
+									<th>Exclusão</th>
 								</tr>
 							</thead>
 
 							<tbody>
 								<c:forEach items="${livros}" var="reg">
 									<tr>
+										<td>${reg.foto}</td>
 										<td>${reg.titulo}</td>
 										<td>${reg.paginas}</td>
-										<td>${reg.autor}</td>
-										<td>${reg.editora}</td>
-										<td>${reg.foto}</td>
+										<td>${reg.autor.nome}</td>
+										<td>${reg.editora.descricao}</td>
+										
 										<td>${reg.preco}</td>
 										<td>${reg.destaque}</td>
 										<td>${reg.status}</td>
-										<td>${reg.categoria}</td>
+										<td>${reg.categoria.nome}</td>
 										
 										<td><button class="btn-edite"></button></td>
 
-<%-- 										<c:if test="${reg.status}"> --%>
-<!-- 											<td><a class="btn-excluir" -->
-<%-- 												href="${s:mvcUrl('CC#ExcluirCategoria').arg(0, reg.id).build()}">Desativar</a> --%>
-<!-- 											</td> -->
-<%-- 										</c:if> --%>
-<%-- 										<c:if test="${!reg.status}"> --%>
-<!-- 											<td><a class="btn-excluir" -->
-<%-- 												href="${s:mvcUrl('CC#AtivarCategoria').arg(0, reg.id).build()}">Ativar</a> --%>
-<!-- 											</td> -->
-<%-- 										</c:if> --%>
+										<c:if test="${reg.status}">
+											<td>
+											<a class="btn-excluir">
+<%-- 												href="${s:mvcUrl('CC#ExcluirCategoria').arg(0, reg.id).build()}"> --%>
+												
+												Desativar</a>
+											</td>
+										</c:if>
+										<c:if test="${!reg.status}">
+											<td><a class="btn-excluir">
+<%-- 												href="${s:mvcUrl('CC#AtivarCategoria').arg(0, reg.id).build()}"> --%>
+												
+												Ativar</a>
+											</td>
+										</c:if>
 
 									</tr>
 								</c:forEach>

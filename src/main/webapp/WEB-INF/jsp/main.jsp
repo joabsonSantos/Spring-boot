@@ -1,17 +1,19 @@
+
 <div class="container-fluid" style="overflow: scroll">
 	<div class="row flex-nowrap">
 
 		<!-- aside -->
 		<div
 			class="col-auto col-md-2 col-xl-2 px-sm-2 px-0 bg-light d-none d-md-block d-lg-block">
+
+			<div class="bg-dark mt-2 d-block w-100 text-center text-white">Administrativo</div>
 			<div
-				class="d-flex flex-column align-items-center align-items-sm-start px-0 pt-5 text-white min-vh-100">
+				class="d-flex flex-column align-items-center align-items-sm-start px-0 pt-2 text-white min-vh-100">
 
 
-
-				<ul class="navbar-nav">
+				<ul class="navbar-nav d-block w-100 border-bottom">
 					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
+						class="nav-link dropdown-toggle " data-toggle="dropdown" href="#">
 							Cadastro </a>
 						<div class="dropdown-menu dropdown-menu-right">
 							<a class="dropdown-item" href="/admin/livros">Cadastro de
@@ -22,7 +24,7 @@
 						</div></li>
 				</ul>
 
-				<ul class="navbar-nav">
+				<ul class="navbar-nav d-block w-100 border-bottom">
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
 							Edição </a>
@@ -35,6 +37,41 @@
 						</div></li>
 				</ul>
 			</div>
+
+			<div class="bg-dark mt-2 d-block w-100 text-center text-white">Outros</div>
+			<div
+				class="d-flex flex-column align-items-center align-items-sm-start px-0 pt-2 text-white min-vh-100">
+
+
+				<ul class="navbar-nav d-block w-100 border-bottom">
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle " data-toggle="dropdown" href="#">
+							Cadastro </a>
+						<div class="dropdown-menu dropdown-menu-right">
+							<a class="dropdown-item" href="/admin/livros">Cadastro de
+								Livros</a> <a class="dropdown-item" href="/admin/categorias">Cadastro
+								de Categorias</a> <a class="dropdown-item" href="/admin/autores">Cadastro
+								de Autores</a> <a class="dropdown-item" href="/admin/editoras">Cadastro
+								de Editoras</a>
+						</div></li>
+				</ul>
+
+				<ul class="navbar-nav d-block w-100 border-bottom">
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
+							Edição </a>
+						<div class="dropdown-menu dropdown-menu-right">
+							<a class="dropdown-item" href="/admin/livros">Editar Livros</a> <a
+								class="dropdown-item" href="/admin/EditarCategoria">Editar
+								Categorias</a> <a class="dropdown-item" href="/admin/autor">Editar
+								Autores</a> <a class="dropdown-item" href="/admin/editora">Editar
+								Editoras</a>
+						</div></li>
+				</ul>
+			</div>
+
+
+
 		</div>
 
 		<!-- main -->
@@ -61,105 +98,41 @@
 						<div class="col p-4">
 
 							<div
-								class="d-flex justify-content-around align-items-center m-2 p-2">
+								class="d-flex justify-content-center align-items-center m-2 p-2">
 								<h1 class="title text-center w-100">Promoções</h1>
 							</div>
 							<!--  principal-->
-							<div class="container">
-
+<!-- 							<div class="container"> -->
+								<!-- container -->
 								<div
 									class="container-fluid  d-flex flex-wrap flex-colum justify-content-center">
+								
+									<c:forEach items="${livros}" var="r">
 
-									<div class="card card-1">
-										<img class="card-img-top m-2 card-img"
-											src="https://m.media-amazon.com/images/I/61kXj1PApLL._AC_SY679_.jpg"
-											alt="Card image cap">
-										<div class="card-body">
-											<h5 class="card-title">Card title</h5>
-											<p class="card-text">This is a longer card with
-												supporting text below as a natural lead-in to additional
-												content. This content is a little bit longer.</p>
-											<p class="card-text">
-												<small class="text-muted">Last updated 3 mins ago</small>
-											</p>
-										</div>
-									</div>
 
-									<div class="card card-1">
-										<img class="card-img-top m-2 card-img"
-											src="https://m.media-amazon.com/images/I/61kXj1PApLL._AC_SY679_.jpg"
-											alt="Card image cap">
-										<div class="card-body">
-											<h5 class="card-title">Card title</h5>
-											<p class="card-text">This is a longer card with
-												supporting text below as a natural lead-in to additional
-												content. This content is a little bit longer.</p>
-											<p class="card-text">
-												<small class="text-muted">Last updated 3 mins ago</small>
-											</p>
+										<!-- Card Produto -->
+										<div class="card card-1">
+											<img class="card-img-top m-2 card-img" src="${r.foto}"
+												alt="Card image cap">
+											<div class="card-body">
+												<h5 class="card-title text-capitalize">${r.titulo}</h5>
+												<p class="card-text">Valor R$ ${r.preco}</p>
+												<p class="card-text">
+													<small class="text-muted text-capitalize">Autor:  ${r.autor.nome}</small>
+													&nbsp;&nbsp;&nbsp;
+													<small class="text-muted text-capitalize">Editora: ${r.editora.descricao}</small>
+												</p>
+											</div>
 										</div>
-									</div>
+										<!-- Card Produto -->
+									</c:forEach>
 
-									<div class="card card-1">
-										<img class="card-img-top m-2 card-img"
-											src="https://m.media-amazon.com/images/I/61kXj1PApLL._AC_SY679_.jpg"
-											alt="Card image cap">
-										<div class="card-body">
-											<h5 class="card-title">Card title</h5>
-											<p class="card-text">This is a longer card with
-												supporting text below as a natural lead-in to additional
-												content. This content is a little bit longer.</p>
-											<p class="card-text">
-												<small class="text-muted">Last updated 3 mins ago</small>
-											</p>
-										</div>
-									</div>
-
-									<div class="card card-1">
-										<img class="card-img-top m-2 card-img"
-											src="https://m.media-amazon.com/images/I/61kXj1PApLL._AC_SY679_.jpg"
-											alt="Card image cap">
-										<div class="card-body">
-											<h5 class="card-title">Card title</h5>
-											<p class="card-text">This is a longer card with
-												supporting text below as a natural lead-in to additional
-												content. This content is a little bit longer.</p>
-											<p class="card-text">
-												<small class="text-muted">Last updated 3 mins ago</small>
-											</p>
-										</div>
-									</div>
-									<div class="card card-1">
-										<img class="card-img-top m-2 card-img"
-											src="https://m.media-amazon.com/images/I/61kXj1PApLL._AC_SY679_.jpg"
-											alt="Card image cap">
-										<div class="card-body">
-											<h5 class="card-title">Card title</h5>
-											<p class="card-text">This is a longer card with
-												supporting text below as a natural lead-in to additional
-												content. This content is a little bit longer.</p>
-											<p class="card-text">
-												<small class="text-muted">Last updated 3 mins ago</small>
-											</p>
-										</div>
-									</div>
-									<div class="card card-1">
-										<img class="card-img-top m-2 card-img"
-											src="https://m.media-amazon.com/images/I/61kXj1PApLL._AC_SY679_.jpg"
-											alt="Card image cap">
-										<div class="card-body">
-											<h5 class="card-title">Card title</h5>
-											<p class="card-text">This is a longer card with
-												supporting text below as a natural lead-in to additional
-												content. This content is a little bit longer.</p>
-											<p class="card-text">
-												<small class="text-muted">Last updated 3 mins ago</small>
-											</p>
-										</div>
-									</div>
+									<!-- Produtos -->
 
 								</div>
-							</div>
+								<!--Container-->
+<!-- 							</div> -->
+							<!-- principal -->
 						</div>
 					</div>
 				</div>
