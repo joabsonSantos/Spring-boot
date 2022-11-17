@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fenix.sales.entity.Livro;
+import com.fenix.sales.infra.FileSaver;
 import com.fenix.sales.repository.AutorRepository;
 import com.fenix.sales.repository.CategoriaRepository;
 import com.fenix.sales.repository.EditoraRepository;
@@ -27,6 +28,8 @@ public class LivroController {
 	AutorRepository autorRepository;
 	@Autowired
 	EditoraRepository editoraRepository;
+	@Autowired
+	FileSaver filesaver;
 	
 	
 	@GetMapping("/admin/livros")
@@ -48,6 +51,9 @@ public class LivroController {
 	@PostMapping("/admin/cadastrarLivro")
 	public ModelAndView cadastrarLivro(MultipartFile foto1, Livro livro) {
 		ModelAndView modelAndView = new ModelAndView("redirect:/admin/livros");	
+		String foto = filesaver.write("imagens", foto1);
+		System.out.println(foto);
+		livro.setFoto(foto);
 		livroRepository.save(livro);
 		return modelAndView;
 	}

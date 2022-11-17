@@ -46,7 +46,8 @@
 							<tbody>
 								<c:forEach items="${livros}" var="reg">
 									<tr>
-										<td>${reg.foto}</td>
+										<td><img width="100rem" src="/${reg.foto}"
+											alt="Card image"></td>
 										<td>${reg.titulo}</td>
 										<td>${reg.paginas}</td>
 										<td>${reg.autor.nome}</td>
