@@ -5,7 +5,7 @@
 		<!-- aside -->
 		<div
 			class="col-auto col-md-2 col-xl-2 px-sm-2 px-0 bg-light d-none d-md-block d-lg-block">
-		
+
 			<div class="bg-dark mt-2 d-block w-100 text-center text-white">Filtros</div>
 			<div id="accordion">
 				<div class="card">
@@ -23,8 +23,7 @@
 							<ul class="list-group">
 
 								<c:forEach items="${autores}" var="autor">
-									<li class="list-group-item">
-									<a 
+									<li class="list-group-item"><a
 										href="${s:mvcUrl('IC#buscarPorAutor').arg(0, autor.id).build()}">${autor.nome}</a>
 									</li>
 								</c:forEach>
@@ -32,7 +31,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 				<div class="card">
 					<div class="card-header" id="headingTwo">
 						<h5 class="mb-0">
@@ -60,8 +59,7 @@
 						<h5 class="mb-0">
 							<button class="btn btn-link collapsed" data-toggle="collapse"
 								data-target="#collapseThree" aria-expanded="false"
-								aria-controls="collapseThree">Filtar Por Categorias
-							</button>
+								aria-controls="collapseThree">Filtar Por Categorias</button>
 						</h5>
 					</div>
 					<div id="collapseThree" class="collapse"
@@ -79,8 +77,8 @@
 					</div>
 				</div>
 			</div>
-			
-			
+
+
 			<div class="bg-dark mt-2 d-block w-100 text-center text-white">Administrativo</div>
 			<div
 				class="d-flex flex-column align-items-center align-items-sm-start px-0 pt-2 text-white min-vh-100">
@@ -112,7 +110,7 @@
 						</div></li>
 				</ul>
 			</div>
-			
+
 
 		</div>
 
@@ -144,7 +142,6 @@
 								<h1 class="title text-center w-100">Livros</h1>
 							</div>
 							<!--  principal-->
-							<!-- 							<div class="container"> -->
 							<!-- container -->
 							<div
 								class="container-fluid  d-flex flex-wrap flex-colum justify-content-center">
@@ -153,8 +150,12 @@
 
 									<!-- Card Produto -->
 									<div class="card card-1">
-										<img class="card-img-top m-2 card-img" src="/${r.foto}"
+										<%--<a class="" href="${s:mvcUrl('IC#detalhesLivro').arg(0, r.id).build()}">  --%>
+										<a onclick="showModal()"
+											href="${s:mvcUrl('IC#detalhesLivro').arg(0, r.id).build()}">
+											<img class="card-img-top m-2 card-img" src="/${r.foto}"
 											alt="Card image cap">
+										</a>
 										<div class="card-body">
 											<h5 class="card-title text-capitalize">${r.titulo}</h5>
 											<p class="card-text">Valor R$ ${r.preco}</p>
@@ -176,14 +177,75 @@
 
 							</div>
 							<!--Container-->
-							<!-- 							</div> -->
+
 							<!-- principal -->
 						</div>
 					</div>
 				</div>
+
+
+
+
+<!-- 				<button type="button" class="btn btn-primary" data-toggle="modal" -->
+<!-- 					data-target="#staticBackdrop">Launch static backdrop modal</button> -->
+				<!-- Modal -->
+				<div class="modal fade show" id="staticBackdrop" data-backdrop="static"
+					data-keyboard="false" tabindex="-1"
+					aria-labelledby="staticBackdropLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="staticBackdropLabel">Modal
+									title</h5>
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+
+								<div class="card m-5">
+									<img class="card-img-top m-2 card-img" src="/${livro.foto}"
+										alt="Card image cap">
+									<div class="card-body">
+										<h5 class="card-title text-capitalize">${livro.titulo}</h5>
+										<p class="card-text">Valor R$ ${livro.preco}</p>
+										<p class="card-text">
+											<small class="text-muted text-capitalize">Autor:
+												${livro.autor.nome}</small> &nbsp;&nbsp;&nbsp; <small
+												class="text-muted text-capitalize">Editora:
+												${livro.editora.descricao}</small>
+										</p>
+									</div>
+								</div>
+
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary"
+									data-dismiss="modal">Close</button>
+								<button type="button" class="btn btn-primary">Adicionar
+									ao carrinho</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Modal -->
+
+
+
+
 			</main>
 		</div>
 	</div>
 </div>
 
+<script type="text/javascript">
 
+	function showModal() {
+		
+		$('#staticBackdrop').modal('show');
+		//event.preventDefault();
+	}
+
+</script>
+>

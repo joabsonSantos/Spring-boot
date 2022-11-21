@@ -1,14 +1,4 @@
 
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
-<!-- Import da taglib -->
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
-
 <!-- Inicio Navbar -->
 <header class="p-3 bg-dark shadow">
 	<nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-md">
@@ -60,7 +50,7 @@
 				<!-- 				<ul class="navbar-nav"> -->
 				<!-- 					<li class="nav-item dropdown"><a -->
 				<!-- 						class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"> -->
-				<!-- 							EdiÃ§Ã£o </a> -->
+				<!-- 							Edição </a> -->
 				<!-- 						<div class="dropdown-menu dropdown-menu-right"> -->
 				<!-- 							<a class="dropdown-item" href="/admin/livros">Editar Livros</a> <a -->
 				<!-- 								class="dropdown-item" href="/admin/EditarCategoria">Editar -->

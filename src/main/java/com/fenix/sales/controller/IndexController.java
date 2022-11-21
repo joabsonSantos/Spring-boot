@@ -65,6 +65,15 @@ public class IndexController {
 		return modelAndView;
 	}
 	
+	
+	@GetMapping("/detalhes/{id}")
+	public ModelAndView detalhesLivro(@PathVariable Long id,Livro livro) {
+		modelAndView.setViewName("index");
+		modelAndView.addObject("livro", livrorepository.findById(id).get());
+//		modelAndView.addObject("s", "show");
+		return modelAndView;
+	}
+	
 
 }
 
