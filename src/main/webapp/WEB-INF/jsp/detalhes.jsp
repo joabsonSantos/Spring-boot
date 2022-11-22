@@ -19,47 +19,10 @@
 </head>
 
 <body class="">
-	<section class="bg-dark container-fluid">
-
-
-
-		<!-- Button trigger modal -->
-		<button type="button" class="btn btn-primary" data-toggle="modal"
-			data-target="#staticBackdrop">Launch static backdrop modal</button>
-
-		<!-- Modal -->
-		<div class="modal fade show" id="staticBackdrop" data-backdrop="static"
-			data-keyboard="false" tabindex="-1"
-			aria-labelledby="staticBackdropLabel" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">...</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary"
-							data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary">Understood</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Modal -->
-
-
-
-
-
-
-
-
-
-
+	<section class="bg-dark container-fluid p-2">
+	
+	<a class="btn btn-primary" href="/">Voltar</a>
+	
 
 		<div class="container">
 
@@ -76,6 +39,8 @@
 								class="text-muted text-capitalize">Editora:
 								${livro.editora.descricao}</small>
 						</p>
+						
+						<a class="btn btn-primary btn-link" href="${s:mvcUrl('CCC#adicionaLivro').arg(0, livro.id).build()}" >Adicionar</a>
 					</div>
 				</div>
 
