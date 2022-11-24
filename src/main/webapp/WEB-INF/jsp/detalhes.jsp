@@ -41,6 +41,7 @@
 						</p>
 						
 						<a class="btn btn-primary btn-link" href="${s:mvcUrl('CCC#adicionaLivro').arg(0, livro.id).build()}" >Adicionar</a>
+						
 					</div>
 				</div>
 

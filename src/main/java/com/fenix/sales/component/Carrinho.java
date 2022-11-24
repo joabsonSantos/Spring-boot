@@ -14,37 +14,42 @@ import com.fenix.sales.entity.Livro;
 @Scope(value = WebApplicationContext.SCOPE_SESSION)
 public class Carrinho {
 	Map<Livro, Integer> carrinho = new LinkedHashMap<>();
-	
-	
-	public Collection<Livro> getItens(){
+
+	public Collection<Livro> getItens() {
 		return carrinho.keySet();
 
 	}
-	
+
 	public void add(Livro livro) {
-		
+
 		carrinho.put(livro, getQtdLivro(livro));
-		
+
 	}
 
 	private Integer getQtdLivro(Livro livro) {
 		if (!carrinho.containsKey(livro)) {
 			return 1;
 		} else {
-			return carrinho.get(livro)+1;
+			return carrinho.get(livro) + 1;
 		}
-		
+
 	}
-	
+
 	public Integer getQtdLivroTela(Livro livro) {
 		if (!carrinho.containsKey(livro)) {
 			return 1;
 		} else {
 			return carrinho.get(livro);
 		}
-		
+
 	}
-	
-	
-	
+
+	public void remove(Livro livro) {
+		carrinho.remove(livro);
+	}
+
+	public void atualizaQtd(Livro l, Integer quantidade) {
+		carrinho.put(l, quantidade);		
+	}
+
 }
