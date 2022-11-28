@@ -149,7 +149,7 @@
 								<c:forEach items="${livros}" var="r">
 
 									<!-- Card Produto -->
-									<div class="card card-1">
+									<div class="card card-1 shadow-1">
 										<%--<a class="" href="${s:mvcUrl('IC#detalhesLivro').arg(0, r.id).build()}">  --%>
 										<a onclick="showModal()"
 											href="${s:mvcUrl('IC#detalhesLivro').arg(0, r.id).build()}">
@@ -235,11 +235,5 @@
 	</div>
 </div>
 
-<script type="text/javascript">
-	function showModal() {
 
-		$('#staticBackdrop').modal('show');
-		//event.preventDefault();
-	}
-</script>
->
+

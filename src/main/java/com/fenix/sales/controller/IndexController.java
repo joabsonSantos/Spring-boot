@@ -29,6 +29,7 @@ public class IndexController {
 
 	@GetMapping("/")
 	public ModelAndView index() {
+		modelAndView.addObject("disp", "flex");
 		modelAndView.setViewName("redirect:/index");
 		return modelAndView;
 	}
@@ -42,6 +43,7 @@ public class IndexController {
 	@GetMapping("/index")
 	public ModelAndView vendasLivros(Livro livro) {
 		modelAndView.setViewName("index");
+		modelAndView.addObject("disp", "flex");
 		modelAndView.addObject("livros", livrorepository.findByDestaqueTrue());
 		modelAndView.addObject("categorias", categoriarepository.findAll());
 		modelAndView.addObject("autores", autorrepository.findAll());

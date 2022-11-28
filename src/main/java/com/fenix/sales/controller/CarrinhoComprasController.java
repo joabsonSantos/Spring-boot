@@ -29,6 +29,14 @@ public class CarrinhoComprasController {
 	Carrinho carrinho;
 	
 	
+	@GetMapping
+	public ModelAndView carrinho() {
+		modelAndView.setViewName("carrinho");
+		modelAndView.addObject("livros", carrinho.getItens());
+		return modelAndView;
+	}
+	
+	
 	@GetMapping("/add/{id}")
 	public ModelAndView adicionaLivro(@PathVariable Long id) {
 		modelAndView.setViewName("carrinho");
@@ -38,14 +46,6 @@ public class CarrinhoComprasController {
 			carrinho.add(livro.get());
 		}		
 		
-		modelAndView.addObject("livros", carrinho.getItens());
-		return modelAndView;
-	}
-	
-	@GetMapping
-	public ModelAndView carrinho() {
-		modelAndView.setViewName("carrinho");
-	
 		modelAndView.addObject("livros", carrinho.getItens());
 		return modelAndView;
 	}

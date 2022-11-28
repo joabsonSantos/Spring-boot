@@ -51,5 +51,15 @@ public class Carrinho {
 	public void atualizaQtd(Livro l, Integer quantidade) {
 		carrinho.put(l, quantidade);		
 	}
+	
+
+	
 
 }
+
+
+
+
+
+
+
