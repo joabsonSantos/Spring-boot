@@ -52,7 +52,16 @@ public class Carrinho {
 		carrinho.put(l, quantidade);		
 	}
 	
-
+	
+//	public Double totalCarrinho() {
+//		double total=1000;
+//		
+//		for (Optional item : carrinho.keySet()) {
+//			total += getQtdLivro(item);
+//		}
+//		
+//		return total;
+//	}
 	
 
 }

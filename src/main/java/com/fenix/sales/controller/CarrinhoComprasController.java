@@ -30,7 +30,7 @@ public class CarrinhoComprasController {
 	
 	
 	@GetMapping
-	public ModelAndView carrinho() {
+	public ModelAndView carrinho(Livro livro) {
 		modelAndView.setViewName("carrinho");
 		modelAndView.addObject("livros", carrinho.getItens());
 		return modelAndView;
@@ -38,7 +38,7 @@ public class CarrinhoComprasController {
 	
 	
 	@GetMapping("/add/{id}")
-	public ModelAndView adicionaLivro(@PathVariable Long id) {
+	public ModelAndView adicionaLivro(@PathVariable Long id,Livro l) {
 		modelAndView.setViewName("carrinho");
 		Optional<Livro> livro = livroRepository.findById(id);
 		
@@ -52,7 +52,7 @@ public class CarrinhoComprasController {
 	
 	
 	@GetMapping("/delete/{id}")
-	public ModelAndView excluirLivro(@PathVariable Long id) {
+	public ModelAndView excluirLivro(@PathVariable Long id,Livro l) {
 		modelAndView.setViewName("carrinho");
 		Optional<Livro> livro = livroRepository.findById(id);
 		
@@ -65,7 +65,7 @@ public class CarrinhoComprasController {
 	
 		
 	@PostMapping("/atualizar")
-	public ModelAndView atualizarQuantidade(Long idLivro, Integer quantidade) {
+	public ModelAndView atualizarQuantidade(Long idLivro, Integer quantidade,Livro livro) {
 		modelAndView.setViewName("carrinho");
 		Livro l = livroRepository.getById(idLivro);
 		carrinho.atualizaQtd(l, quantidade);		

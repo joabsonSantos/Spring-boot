@@ -5,7 +5,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!-- Import da taglib -->
-<%-- <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %> --%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
 <!doctype html>
 <html lang="pt-br">
@@ -22,9 +22,6 @@
 	<%@ include file="header.jsp" %>
 
 	<section class="container-fluid p-3 mb-5">
-
-<!-- 		<a class="btn btn-primary" href="/">Voltar</a> -->
-
 
 		<div class="container bg-light rounded mt-4 py-4">
 			
@@ -82,7 +79,7 @@
 										</div>
 
 										<input type="hidden" name="idLivro" value="${livro.id}" />
-										<input class="form-control" type="number" name="quantidade" value="${carrinho.getQtdLivroTela(livro)}"/>
+										<input class="form-control" type="number" min ="1" name="quantidade" value="${carrinho.getQtdLivroTela(livro)}"/>
 
 <!-- 										<button type="submit" class="btn btn-success" value="atualizar">atualizar</button> -->
 										<input class="btn btn-success" value="atualizar" type="submit" />
@@ -111,7 +108,7 @@
 			</div>
 			</c:forEach>
 			
-			<h1 class="text-right">Total carrinho R$ 0,00 </h1>
+			<h1 class="text-right pr-5">Total carrinho R$  </h1>
 		</div>
 	</section>
 
