@@ -17,6 +17,7 @@ public class Livro {
 
 	private String titulo;
 
+	private String descricao;
 	private Integer paginas;
 
 	@OneToOne
@@ -37,14 +38,15 @@ public class Livro {
 
 	}
 	
-	
 
 
-	public Livro(Long id, String titulo, Integer paginas, Autor autor, Editora editora, String foto, double preco,
-			boolean destaque, boolean status, Categoria categoria) {
+
+	public Livro(Long id, String titulo, String descricao, Integer paginas, Autor autor, Editora editora, String foto,
+			double preco, boolean destaque, boolean status, Categoria categoria) {
 		super();
 		this.id = id;
 		this.titulo = titulo;
+		this.descricao = descricao;
 		this.paginas = paginas;
 		this.autor = autor;
 		this.editora = editora;
@@ -54,6 +56,11 @@ public class Livro {
 		this.status = status;
 		this.categoria = categoria;
 	}
+
+
+
+
+
 
 
 
@@ -177,13 +184,32 @@ public class Livro {
 	}
 
 
+	
+
+	
+
+
+
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+
+
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+
 
 
 	@Override
 	public String toString() {
-		return "Livro [id=" + id + ", titulo=" + titulo + ", paginas=" + paginas + ", autor=" + autor + ", editora="
-				+ editora + ", foto=" + foto + ", preco=" + preco + ", destaque=" + destaque + ", status=" + status
-				+ ", categoria=" + categoria + "]";
+		return "Livro [id=" + id + ", titulo=" + titulo + ", descricao=" + descricao + ", paginas=" + paginas
+				+ ", autor=" + autor + ", editora=" + editora + ", foto=" + foto + ", preco=" + preco + ", destaque="
+				+ destaque + ", status=" + status + ", categoria=" + categoria + "]";
 	}
 
 

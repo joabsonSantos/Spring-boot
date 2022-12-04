@@ -14,9 +14,9 @@ import com.fenix.sales.repository.EditoraRepository;
 
 @Controller
 public class EditoraController {
-	
-ModelAndView modelAndView = new ModelAndView();
-	
+
+	ModelAndView modelAndView = new ModelAndView();
+
 	@Autowired
 	EditoraRepository EditoraRepository;
 
@@ -43,27 +43,62 @@ ModelAndView modelAndView = new ModelAndView();
 		return modelAndView;
 	}
 
+//	@GetMapping("/admin/ExcluirEditora/{id}")
+//	public ModelAndView ExcluirEditora(@PathVariable Integer id, RedirectAttributes redirectAttributes) {
+//	    modelAndView.setViewName("redirect:/admin/editoras");
+//	    Editora Editora = EditoraRepository.findById(id).get();
+//	    Editora.setStatus(false);
+//        EditoraRepository.save(Editora);
+//		return modelAndView;
+//	}
+//	
+//	
+//	@GetMapping("/admin/EditarEditora/{id}")
+//	public ModelAndView EditarEditora(@PathVariable Integer id, RedirectAttributes redirectAttributes) {
+//		modelAndView.setViewName("admin/formEditora");
+//		return modelAndView;
+//	}
+//	
+//
+//
+//	@PostMapping("/admin/EdicaoEditora")
+//	public ModelAndView UpdateEditora(Editora Editora) {
+//		modelAndView.setViewName("admin/formEditora");
+//		return modelAndView;
+//	}
+
 	@GetMapping("/admin/ExcluirEditora/{id}")
 	public ModelAndView ExcluirEditora(@PathVariable Integer id, RedirectAttributes redirectAttributes) {
-	    modelAndView.setViewName("redirect:/admin/editoras");
-	    Editora Editora = EditoraRepository.findById(id).get();
-	    Editora.setStatus(false);
-        EditoraRepository.save(Editora);
+		modelAndView.setViewName("redirect:/admin/editoras");
+		Editora editora = EditoraRepository.findById(id).get();
+		editora.setStatus(false);
+		EditoraRepository.save(editora);
 		return modelAndView;
 	}
-	
-	
+
+	@GetMapping("/admin/AtivarEditora/{id}")
+	public ModelAndView AtivarEditora(@PathVariable Integer id) {
+		modelAndView.setViewName("redirect:/admin/editoras");
+		Editora editora = EditoraRepository.findById(id).get();
+		editora.setStatus(true);
+		EditoraRepository.save(editora);
+		return modelAndView;
+	}
+
 	@GetMapping("/admin/EditarEditora/{id}")
 	public ModelAndView EditarEditora(@PathVariable Integer id, RedirectAttributes redirectAttributes) {
-		modelAndView.setViewName("admin/formEditora");
+		modelAndView.setViewName("admin/editoras");
+		modelAndView.addObject("editoras", EditoraRepository.findById(id).get());
 		return modelAndView;
 	}
-	
-
 
 	@PostMapping("/admin/EdicaoEditora")
-	public ModelAndView UpdateEditora(Editora Editora) {
-		modelAndView.setViewName("admin/formEditora");
+	public ModelAndView UpdateEditora(Editora editora) {
+		modelAndView.setViewName("redirect:/admin/editoras");
+		Editora editora1 = EditoraRepository.getById(editora.getId());
+		editora1.setDescricao(editora.getDescricao());
+		EditoraRepository.save(editora1);
+
 		return modelAndView;
 	}
 

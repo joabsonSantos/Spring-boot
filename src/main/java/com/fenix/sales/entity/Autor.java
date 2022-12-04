@@ -16,7 +16,7 @@ public class Autor {
 
 	private String nome;
 
-	private boolean status = false;
+	private boolean status = true;
 
 	
 

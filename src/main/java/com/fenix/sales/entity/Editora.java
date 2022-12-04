@@ -1,5 +1,7 @@
 package com.fenix.sales.entity;
 
+import java.util.Objects;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -50,4 +52,24 @@ public class Editora {
 		this.status = status;
 	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(descricao, id, status);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Editora other = (Editora) obj;
+		return Objects.equals(descricao, other.descricao) && Objects.equals(id, other.id) && status == other.status;
+	}
+
+	
+	
+	
 }

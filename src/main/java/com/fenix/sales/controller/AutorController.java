@@ -15,7 +15,7 @@ import com.fenix.sales.repository.AutorRepository;
 @Controller
 public class AutorController {
 	ModelAndView modelAndView = new ModelAndView();
-	
+
 	@Autowired
 	AutorRepository autorRepository;
 
@@ -44,24 +44,36 @@ public class AutorController {
 
 	@GetMapping("/admin/ExcluirAutor/{id}")
 	public ModelAndView ExcluirAutor(@PathVariable Long id, RedirectAttributes redirectAttributes) {
-	    modelAndView.setViewName("redirect:/admin/autores");
-	    Autor autor = autorRepository.findById(id).get();
-	    autor.setStatus(false);
-        autorRepository.save(autor);
+		modelAndView.setViewName("redirect:/admin/autores");
+		Autor autor = autorRepository.findById(id).get();
+		autor.setStatus(false);
+		autorRepository.save(autor);
 		return modelAndView;
 	}
-	
+
+	@GetMapping("/admin/AtivarAutor/{id}")
+	public ModelAndView AtivarAutor(@PathVariable Long id) {
+		modelAndView.setViewName("redirect:/admin/autores");
+		Autor autor = autorRepository.findById(id).get();
+		autor.setStatus(true);
+		autorRepository.save(autor);
+		return modelAndView;
+	}
+
 	@GetMapping("/admin/EditarAutor/{id}")
 	public ModelAndView EditarAutor(@PathVariable Long id, RedirectAttributes redirectAttributes) {
-		modelAndView.setViewName("admin/formAutor");
+		modelAndView.setViewName("redirect:/admin/autores");
+		modelAndView.addObject("autores", autorRepository.findById(id).get());
 		return modelAndView;
 	}
-	
 
-
-	@PostMapping("/admin/Edicao")
+	@PostMapping("/admin/EdicaoAutor")
 	public ModelAndView UpdateAutor(Autor autor) {
-		modelAndView.setViewName("admin/formAutor");
+		modelAndView.setViewName("redirect:/admin/autores");
+		Autor autor1 = autorRepository.getById(autor.getId());
+		autor1.setNome(autor.getNome());
+		autorRepository.save(autor1);
+
 		return modelAndView;
 	}
 
