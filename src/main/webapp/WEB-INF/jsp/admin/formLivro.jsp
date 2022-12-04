@@ -18,11 +18,11 @@
 
 	<main class="main mb-5">
 
-		<div class="container bg-light mt-4 rounded shadow-1">
+		<div class="container-fluid mt-4 ">
 
 
 			<div class="row">
-				<div class="container w-100 m-5 shadow-1">
+				<div class="container-fluid w-100 m-5 bg-light rounded shadow-1">
 					<h3 class="text-center p-2">Livros Cadastrados</h3>
 					<div class="container-fluid  table-responsive-md">
 						<table
@@ -86,7 +86,7 @@
 
 
 			<div class="row">
-				<div class="container-fluid">
+				<div class="container bg-light rounded shadow-1">
 					<h3 class="text-center p-2">Cadastrar Livros</h3>
 					<form:form action="${s:mvcUrl('LC#cadastrarLivro').build()}"
 						method="POST" modelAttribute="livro" enctype="multipart/form-data">
@@ -96,6 +96,9 @@
 
 								<label class="mt-3">Titulo:</label>
 								<form:input class="form-control" path="titulo" />
+								
+								<label class="mt-3">Descrição:</label>
+								<form:input class="form-control" path="descricao" />
 
 								<label class="mt-3">Páginas:</label>
 								<form:input class="form-control" path="paginas" />
@@ -118,15 +121,19 @@
 									<form:options items="${categorias}" itemLabel="nome" />
 								</form:select>
 									
-								<label class="mt-3">Foto:</label> 
+								<label class="mt-3" for="foto1">Foto:</label> 
 								<input type="file" class="form-control"
 									name="foto1" />
 									 
 								<label class="mt-3">Preço:</label>
-								<form:input class="form-control" path="preco" />
+								<form:input class="form-control" path="preco" required="required" value="100"/>
 
 								<label class="mt-3">Destaque:</label>
-								<form:input class="form-control" path="destaque" />
+<%-- 								<form:input class="form-control" path="destaque" required="required" value="true"/> --%>
+								<form:select path="destaque" class="form-control mt-3">
+									<form:option value="false" label="Não destacar" />
+									<form:option value="true" label="Destaque" selected="selected" />
+								</form:select>
 
 <!-- 								<label class="mt-3">Ativo:</label> -->
 <%-- 								<form:input class="form-control" path="status" /> --%>

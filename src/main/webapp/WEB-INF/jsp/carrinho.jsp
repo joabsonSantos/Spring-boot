@@ -73,16 +73,14 @@
 							<div class="row d-flex align-items-center">
 								<div class="col-auto">
 
-									<form:form servletRelativeAction="/carrinho/atualizar" method="POST" class="input-group">
+									<form:form id="form" servletRelativeAction="/carrinho/atualizar" method="POST" class="input-group">
 										<div class="input-group-prepend">
 											<div class="input-group-text">Qtd</div>
 										</div>
 
 										<input type="hidden" name="idLivro" value="${livro.id}" />
-										<input class="form-control" type="number" min ="1" name="quantidade" value="${carrinho.getQtdLivroTela(livro)}"/>
-
-<!-- 										<button type="submit" class="btn btn-success" value="atualizar">atualizar</button> -->
-										<input class="btn btn-success" value="atualizar" type="submit" />
+										<input id="qtd" class="form-control" type="number" min ="1" name="quantidade" value="${carrinho.getQtdLivroTela(livro)}" onchange="myFunction()"/>
+<!-- 										<input class="btn btn-success" value="atualizar" type="submit" /> -->
 									</form:form>
 									
 									
@@ -113,6 +111,19 @@
 	</section>
 
 <%@ include file="admin/footer.jsp" %>
+
+
+
+	
+	<script type="text/javascript">
+		function myFunction() {
+			//let input = document.getElementById('qtd');
+			let form = document.getElementById('form');
+			form.submit();			
+		}
+	</script>
+
+
 
 </body>
 

@@ -47,8 +47,8 @@
 
 								<c:forEach items="${editoras}" var="editora">
 									<li class="list-group-item"><a
-										class="nav-link dropdown-toggle" data-toggle="dropdown"
-										href="#">${editora.descricao}</a></li>
+										href="${s:mvcUrl('IC#buscarPorEditora').arg(0, editora.id).build()}">${editora.descricao}</a>
+									</li>
 								</c:forEach>
 							</ul>
 						</div>
@@ -69,8 +69,8 @@
 
 								<c:forEach items="${categorias}" var="categoria">
 									<li class="list-group-item"><a
-										class="nav-link dropdown-toggle" data-toggle="dropdown"
-										href="#">${categoria.nome}</a></li>
+										href="${s:mvcUrl('IC#buscarPorCategoria').arg(0, categoria.id).build()}">${categoria.nome}</a>
+									</li>
 								</c:forEach>
 							</ul>
 						</div>
@@ -185,46 +185,46 @@
 
 
 				<!-- Modal -->
-<!-- 				<div class="modal fade" id="staticBackdrop" -->
-<!-- 					data-backdrop="static" data-keyboard="false" tabindex="-1" -->
-<!-- 					aria-labelledby="staticBackdropLabel" aria-hidden="true"> -->
-<!-- 					<div class="modal-dialog"> -->
-<!-- 						<div class="modal-content"> -->
-<!-- 							<div class="modal-header"> -->
-<!-- 								<h5 class="modal-title" id="staticBackdropLabel">Modal -->
-<!-- 									title</h5> -->
-<!-- 								<button type="button" class="close" data-dismiss="modal" -->
-<!-- 									aria-label="Close"> -->
-<!-- 									<span aria-hidden="true">&times;</span> -->
-<!-- 								</button> -->
-<!-- 							</div> -->
-<!-- 							<div class="modal-body"> -->
+				<!-- 				<div class="modal fade" id="staticBackdrop" -->
+				<!-- 					data-backdrop="static" data-keyboard="false" tabindex="-1" -->
+				<!-- 					aria-labelledby="staticBackdropLabel" aria-hidden="true"> -->
+				<!-- 					<div class="modal-dialog"> -->
+				<!-- 						<div class="modal-content"> -->
+				<!-- 							<div class="modal-header"> -->
+				<!-- 								<h5 class="modal-title" id="staticBackdropLabel">Modal -->
+				<!-- 									title</h5> -->
+				<!-- 								<button type="button" class="close" data-dismiss="modal" -->
+				<!-- 									aria-label="Close"> -->
+				<!-- 									<span aria-hidden="true">&times;</span> -->
+				<!-- 								</button> -->
+				<!-- 							</div> -->
+				<!-- 							<div class="modal-body"> -->
 
-<!-- 								<div class="card m-5"> -->
-<%-- 									<img class="card-img-top m-2 card-img" src="/${livro.foto}" --%>
-<!-- 										alt="Card image cap"> -->
-<!-- 									<div class="card-body"> -->
-<%-- 										<h5 class="card-title text-capitalize">${livro.titulo}</h5> --%>
-<%-- 										<p class="card-text">Valor R$ ${livro.preco}</p> --%>
-<!-- 										<p class="card-text"> -->
-<!-- 											<small class="text-muted text-capitalize">Autor: -->
-<%-- 												${livro.autor.nome}</small> &nbsp;&nbsp;&nbsp; <small --%>
-<!-- 												class="text-muted text-capitalize">Editora: -->
-<%-- 												${livro.editora.descricao}</small> --%>
-<!-- 										</p> -->
-<!-- 									</div> -->
-<!-- 								</div> -->
+				<!-- 								<div class="card m-5"> -->
+				<%-- 									<img class="card-img-top m-2 card-img" src="/${livro.foto}" --%>
+				<!-- 										alt="Card image cap"> -->
+				<!-- 									<div class="card-body"> -->
+				<%-- 										<h5 class="card-title text-capitalize">${livro.titulo}</h5> --%>
+				<%-- 										<p class="card-text">Valor R$ ${livro.preco}</p> --%>
+				<!-- 										<p class="card-text"> -->
+				<!-- 											<small class="text-muted text-capitalize">Autor: -->
+				<%-- 												${livro.autor.nome}</small> &nbsp;&nbsp;&nbsp; <small --%>
+				<!-- 												class="text-muted text-capitalize">Editora: -->
+				<%-- 												${livro.editora.descricao}</small> --%>
+				<!-- 										</p> -->
+				<!-- 									</div> -->
+				<!-- 								</div> -->
 
-<!-- 							</div> -->
-<!-- 							<div class="modal-footer"> -->
-<!-- 								<button type="button" class="btn btn-secondary" -->
-<!-- 									data-dismiss="modal">Close</button> -->
-<!-- 								<button type="button" class="btn btn-primary">Adicionar -->
-<!-- 									ao carrinho</button> -->
-<!-- 							</div> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
+				<!-- 							</div> -->
+				<!-- 							<div class="modal-footer"> -->
+				<!-- 								<button type="button" class="btn btn-secondary" -->
+				<!-- 									data-dismiss="modal">Close</button> -->
+				<!-- 								<button type="button" class="btn btn-primary">Adicionar -->
+				<!-- 									ao carrinho</button> -->
+				<!-- 							</div> -->
+				<!-- 						</div> -->
+				<!-- 					</div> -->
+				<!-- 				</div> -->
 				<!-- Modal -->
 
 

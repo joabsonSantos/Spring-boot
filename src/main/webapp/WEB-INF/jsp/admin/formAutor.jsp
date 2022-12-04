@@ -55,18 +55,32 @@
 									<th>Nome:</th>
 									<th>Status:</th>
 									<th>Editar</th>
-									<th>Excluir</th>
+									<th>Desativar / Ativar</th>
 								</tr>
 							</thead>
 
 							<tbody>
+
 								<c:forEach items="${registros}" var="reg">
 									<tr>
 										<td>${reg.nome}</td>
 										<td>${reg.status}</td>
-										<td><button class="btn-edite"></button></td>
-										<!--<td><button class="btn-delete"></button></td> -->
-										<td><a class="btn-excluir" href="${s:mvcUrl('AC#ExcluirAutor').arg(0, reg.id).build()}">Excluir</a></td>
+										<td><a class="btn-editee"
+											href="${s:mvcUrl('AC#EditarAutor').arg(0, reg.id).build()}">Editar</a></td>
+
+
+										<c:if test="${reg.status}">
+											<td><a class="btn-excluir"
+												href="${s:mvcUrl('AC#ExcluirAutor').arg(0, reg.id).build()}">Desativar</a>
+											</td>
+										</c:if>
+										
+										<c:if test="${!reg.status}">
+											<td><a class="btn-excluir"
+												href="${s:mvcUrl('AC#AtivarAutor').arg(0, reg.id).build()}">Ativar</a>
+											</td>
+										</c:if>
+
 									</tr>
 								</c:forEach>
 							</tbody>
