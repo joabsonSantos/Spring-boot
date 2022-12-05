@@ -22,7 +22,18 @@
 	<%@ include file="header.jsp" %>
 
 	<section class="container-fluid p-3 mb-5">
-
+		
+		<div class="container bg-light rounded mt-4 py-5 shadow text-center">
+			<div class="row">
+			<div class="col-md-7 font-weight-bold">
+				<div class="font-weight-normal fs-5">Subtotal (${itens} itens): &nbsp; <span class="font-weight-bold" style="font-size:1.65em"> R$ ${total}</span></div> 
+			</div>
+			<div class="col-md-4 d-flex align-items-center justify-content-center">
+				<a style="text-decoration:none" class="btn-lg text-dark bg-warning btn-block text-decoration-none" href="#">Fechar Pedido</a>
+			</div>
+			</div>
+		</div>	
+		
 		<div class="container bg-light rounded mt-4 py-4">
 			
 			<h1 class="text-center text-primary m-4 p3-5">Carrinho</h1>
@@ -106,7 +117,7 @@
 			</div>
 			</c:forEach>
 			
-			<h1 class="text-right pr-5">Total carrinho R$ ${total} </h1>
+			<div class="text-right pr-5" style="font-size:1.20em">(${itens} Itens ): Total carrinho <span class="font-weight-bold"> R$ ${total}</span> </div>
 		</div>
 	</section>
 
