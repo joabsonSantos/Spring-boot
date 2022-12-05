@@ -57,6 +57,7 @@ public class IndexController {
 		modelAndView.addObject("autores", autorrepository.findAll());
 		modelAndView.addObject("editoras", editorarepository.findAll());
 		modelAndView.addObject("itens", carrinho.getItens().size());
+		modelAndView.addObject("total", carrinho.totalCarrinho());
 		return modelAndView;
 	}
 	
@@ -69,6 +70,7 @@ public class IndexController {
 		modelAndView.addObject("editoras", editorarepository.findAll());
 		modelAndView.addObject("disp", "flex");
 		modelAndView.addObject("itens", carrinho.getItens().size());
+		modelAndView.addObject("total", carrinho.totalCarrinho());
 		return modelAndView;
 	}
 	
@@ -83,6 +85,7 @@ public class IndexController {
 		modelAndView.addObject("editoras", editorarepository.findAll());
 		modelAndView.addObject("disp", "flex");
 		modelAndView.addObject("itens", carrinho.getItens().size());
+		modelAndView.addObject("total", carrinho.totalCarrinho());
 		return modelAndView;
 	}
 	
@@ -96,6 +99,7 @@ public class IndexController {
 		modelAndView.addObject("editoras", editorarepository.findAll());
 		modelAndView.addObject("disp", "flex");
 		modelAndView.addObject("itens", carrinho.getItens().size());
+		modelAndView.addObject("total", carrinho.totalCarrinho());
 		return modelAndView;
 	}
 	
@@ -109,6 +113,7 @@ public class IndexController {
 		modelAndView.addObject("editoras", editorarepository.findAll());
 		modelAndView.addObject("disp", "flex");
 		modelAndView.addObject("itens", carrinho.getItens().size());
+		modelAndView.addObject("total", carrinho.totalCarrinho());
 		return modelAndView;
 	}
 	
@@ -118,7 +123,8 @@ public class IndexController {
 	public ModelAndView detalhesLivro(@PathVariable Long id,Livro livro) {
 		modelAndView.setViewName("detalhes");
 		modelAndView.addObject("livro", livrorepository.findById(id).get());
-//		modelAndView.addObject("s", "show");
+		modelAndView.addObject("itens", carrinho.getItens().size());
+		modelAndView.addObject("total", carrinho.totalCarrinho());
 		return modelAndView;
 	}
 	

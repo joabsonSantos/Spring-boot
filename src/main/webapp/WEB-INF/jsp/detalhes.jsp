@@ -20,7 +20,8 @@
 </head>
 
 <body class="">
-	<section class="container-fluid p-2">
+	<%@ include file="header.jsp" %>
+	<section class="container-fluid p-2 mb-5">
 
 		<a class="btn btn-primary" href="/">Voltar</a>
 
@@ -75,7 +76,7 @@
 	</section>
 
 
-
+<%@ include file="admin/footer.jsp" %>
 
 </body>
 

@@ -32,6 +32,7 @@ public class CarrinhoComprasController {
 		modelAndView.setViewName("carrinho");
 		modelAndView.addObject("livros", carrinho.getItens());
 		modelAndView.addObject("itens", carrinho.getItens().size());
+		modelAndView.addObject("total", carrinho.totalCarrinho());
 		return modelAndView;
 	}
 
@@ -43,7 +44,7 @@ public class CarrinhoComprasController {
 		if (livro.isPresent()) {
 			carrinho.add(livro.get());
 		}
-//		modelAndView.setViewName("carrinho");
+
 		modelAndView.setViewName("redirect:/carrinho");
 		modelAndView.addObject("livros", carrinho.getItens());
 		return modelAndView;
@@ -57,6 +58,7 @@ public class CarrinhoComprasController {
 		if (livro.isPresent()) {
 			carrinho.remove(livro.get());
 		}
+		modelAndView.addObject("total", carrinho.totalCarrinho());
 		modelAndView.addObject("livros", carrinho.getItens());
 		return modelAndView;
 	}
@@ -65,7 +67,6 @@ public class CarrinhoComprasController {
 	public ModelAndView atualizarQuantidade(Long idLivro, Integer quantidade, Livro livro) {
 		Livro l = livroRepository.getById(idLivro);
 		carrinho.atualizaQtd(l, quantidade);
-//		modelAndView.setViewName("carrinho");
 		modelAndView.setViewName("redirect:/carrinho");
 		modelAndView.addObject("livros", carrinho.getItens());
 		return modelAndView;

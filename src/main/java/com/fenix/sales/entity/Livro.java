@@ -243,9 +243,4 @@ public class Livro {
 		return true;
 	}
 	
-	
-	
-	
-
-	
 }

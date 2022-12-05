@@ -106,7 +106,7 @@
 			</div>
 			</c:forEach>
 			
-			<h1 class="text-right pr-5">Total carrinho R$  </h1>
+			<h1 class="text-right pr-5">Total carrinho R$ ${total} </h1>
 		</div>
 	</section>
 

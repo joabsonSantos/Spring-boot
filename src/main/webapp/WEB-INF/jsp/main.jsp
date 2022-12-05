@@ -121,18 +121,6 @@
 				<!-- Conteudo principal-->
 				<div class="container bg-light mt-4 rounded shadow-1">
 
-					<!-- 		<div class="row d-flex"> -->
-					<!-- 			<nav class="navbar bg-light"> -->
-					<!-- 				<div class="container-fluid"> -->
-					<!-- 					<form class="d-flex" role="search"> -->
-					<!-- 						<input class="form-control me-2" type="search" -->
-					<!-- 							placeholder="Search" aria-label="Search"> -->
-					<!-- 						<button class="btn btn-outline-success" type="submit">Search</button> -->
-					<!-- 					</form> -->
-					<!-- 				</div> -->
-					<!-- 			</nav> -->
-					<!-- 		</div> -->
-
 					<div class="row">
 
 						<div class="col p-4">
@@ -149,13 +137,11 @@
 								<c:forEach items="${livros}" var="r">
 
 									<!-- Card Produto -->
-									<div class="card card-1 shadow-1">
-										<%--<a class="" href="${s:mvcUrl('IC#detalhesLivro').arg(0, r.id).build()}">  --%>
-										<a onclick="showModal()"
-											href="${s:mvcUrl('IC#detalhesLivro').arg(0, r.id).build()}">
+									<a style="text-decoration:none ;" href="${s:mvcUrl('IC#detalhesLivro').arg(0, r.id).build()}">
+									<div class="card card-1 shadow-1">	
 											<img class="card-img-top m-2 card-img" src="/${r.foto}"
 											alt="Card image cap">
-										</a>
+										
 										<div class="card-body">
 											<h5 class="card-title text-capitalize">${r.titulo}</h5>
 											<p class="card-text">Valor R$ ${r.preco}</p>
@@ -167,6 +153,7 @@
 											</p>
 										</div>
 									</div>
+									</a>
 									<!-- Card Produto -->
 								</c:forEach>
 								<!-- Produtos -->
@@ -182,54 +169,6 @@
 						</div>
 					</div>
 				</div>
-
-
-				<!-- Modal -->
-				<!-- 				<div class="modal fade" id="staticBackdrop" -->
-				<!-- 					data-backdrop="static" data-keyboard="false" tabindex="-1" -->
-				<!-- 					aria-labelledby="staticBackdropLabel" aria-hidden="true"> -->
-				<!-- 					<div class="modal-dialog"> -->
-				<!-- 						<div class="modal-content"> -->
-				<!-- 							<div class="modal-header"> -->
-				<!-- 								<h5 class="modal-title" id="staticBackdropLabel">Modal -->
-				<!-- 									title</h5> -->
-				<!-- 								<button type="button" class="close" data-dismiss="modal" -->
-				<!-- 									aria-label="Close"> -->
-				<!-- 									<span aria-hidden="true">&times;</span> -->
-				<!-- 								</button> -->
-				<!-- 							</div> -->
-				<!-- 							<div class="modal-body"> -->
-
-				<!-- 								<div class="card m-5"> -->
-				<%-- 									<img class="card-img-top m-2 card-img" src="/${livro.foto}" --%>
-				<!-- 										alt="Card image cap"> -->
-				<!-- 									<div class="card-body"> -->
-				<%-- 										<h5 class="card-title text-capitalize">${livro.titulo}</h5> --%>
-				<%-- 										<p class="card-text">Valor R$ ${livro.preco}</p> --%>
-				<!-- 										<p class="card-text"> -->
-				<!-- 											<small class="text-muted text-capitalize">Autor: -->
-				<%-- 												${livro.autor.nome}</small> &nbsp;&nbsp;&nbsp; <small --%>
-				<!-- 												class="text-muted text-capitalize">Editora: -->
-				<%-- 												${livro.editora.descricao}</small> --%>
-				<!-- 										</p> -->
-				<!-- 									</div> -->
-				<!-- 								</div> -->
-
-				<!-- 							</div> -->
-				<!-- 							<div class="modal-footer"> -->
-				<!-- 								<button type="button" class="btn btn-secondary" -->
-				<!-- 									data-dismiss="modal">Close</button> -->
-				<!-- 								<button type="button" class="btn btn-primary">Adicionar -->
-				<!-- 									ao carrinho</button> -->
-				<!-- 							</div> -->
-				<!-- 						</div> -->
-				<!-- 					</div> -->
-				<!-- 				</div> -->
-				<!-- Modal -->
-
-
-
-
 			</main>
 		</div>
 	</div>

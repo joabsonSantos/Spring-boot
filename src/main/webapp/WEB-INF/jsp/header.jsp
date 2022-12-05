@@ -47,9 +47,9 @@
 					</button>
 					<div class="dropdown-menu dropdown-menu-right mt-2"
 						aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item" href="/carrinho">Carrinho</a> <a
-							class="dropdown-item" href="#">Another action</a> <a
-							class="dropdown-item" href="#">Something else here</a>
+						<a class="dropdown-item" href="/carrinho">Carrinho</a> 
+						<a class="dropdown-item" href="#">Total Carrinho R$ ${total}</a> 
+						<a class="dropdown-item" href="#"></a>
 					</div>
 				</div>
 
