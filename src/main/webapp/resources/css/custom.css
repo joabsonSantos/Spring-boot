@@ -89,6 +89,7 @@
 .card-1{
 	min-width: 280px !important;
 	max-width: 280px !important;
+	min-height: 410px;
 	max-height: 510px;
 	margin: 10px;
 	/*overflow-y: scroll;*/

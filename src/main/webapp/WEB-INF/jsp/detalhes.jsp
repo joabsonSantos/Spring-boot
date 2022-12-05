@@ -53,10 +53,8 @@
 						<div class="row d-flex justify-content-space-around mt-5">
 							<div class="col-8 text-justify">
 								<h5>Descrição:</h5>
-								<p class="text-wrap"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
-									deleniti laudantium
-									hic magni sunt temporibus dolore reprehenderit exercitationem, perferendis tempora
-									itaque inventore earum reiciendis eum eos voluptas expedita tenetur eligendi.
+								<p class="text-wrap ">
+									${livro.descricao}
 								</p>
 							</div>
 							<div class="col-4 d-flex align-items-center justify-content-center">

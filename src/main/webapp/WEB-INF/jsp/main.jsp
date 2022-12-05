@@ -1,85 +1,50 @@
 
+
+<style>
+	*{
+		list-style:none;
+	}
+</style>
+
 <div class="container-fluid" style="overflow: scroll">
 	<div class="row flex-nowrap">
 
 		<!-- aside -->
 		<div
-			class="col-auto col-md-2 col-xl-2 px-sm-2 px-0 bg-light d-none d-md-block d-lg-block">
+			class="col-auto col-md-2 col-xl-1 px-sm-2 ml-3 mr-0 p-4 d-none d-md-block d-lg-block">
 
-			<div class="bg-dark mt-2 d-block w-100 text-center text-white">Filtros</div>
-			<div id="accordion">
-				<div class="card">
-					<div class="card-header" id="headingOne">
-						<h5 class="mb-0">
-							<button class="btn btn-link" data-toggle="collapse"
-								data-target="#collapseOne" aria-expanded="true"
-								aria-controls="collapseOne">Filtar Por Autores</button>
-						</h5>
-					</div>
+			<div class="mt-5 d-block text-capitalize font-weight-bolder">Autores</div>
 
-					<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-						data-parent="#accordion">
-						<div class="card-body">
-							<ul class="list-group">
+			<ul>
+				<c:forEach items="${autores}" var="autor">
+					<li class="text-capitalize pl-2"><small><a class="text-secondary"
+						href="${s:mvcUrl('IC#buscarPorAutor').arg(0, autor.id).build()}">${autor.nome}</a></small>
+					</li>
+				</c:forEach>
+			</ul>
+			
+			<div class="mt-2 d-block text-capitalize font-weight-bolder">Editoras</div>
+			<ul >
 
-								<c:forEach items="${autores}" var="autor">
-									<li class="list-group-item"><a
-										href="${s:mvcUrl('IC#buscarPorAutor').arg(0, autor.id).build()}">${autor.nome}</a>
-									</li>
-								</c:forEach>
-							</ul>
-						</div>
-					</div>
-				</div>
+				<c:forEach items="${editoras}" var="editora">
+					<li class="text-capitalize pl-2"><small><a class="text-secondary"
+						href="${s:mvcUrl('IC#buscarPorEditora').arg(0, editora.id).build()}">${editora.descricao}</a></small>
+					</li>
+				</c:forEach>
+			</ul>
+			
+			<div class="mt-2 d-block text-capitalize font-weight-bolder">Categorias</div>	
+			<ul >
 
-				<div class="card">
-					<div class="card-header" id="headingTwo">
-						<h5 class="mb-0">
-							<button class="btn btn-link collapsed" data-toggle="collapse"
-								data-target="#collapseTwo" aria-expanded="false"
-								aria-controls="collapseTwo">Filtar Por Editoras</button>
-						</h5>
-					</div>
-					<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-						data-parent="#accordion">
-						<div class="card-body">
-							<ul class="list-group">
-
-								<c:forEach items="${editoras}" var="editora">
-									<li class="list-group-item"><a
-										href="${s:mvcUrl('IC#buscarPorEditora').arg(0, editora.id).build()}">${editora.descricao}</a>
-									</li>
-								</c:forEach>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="card">
-					<div class="card-header" id="headingThree">
-						<h5 class="mb-0">
-							<button class="btn btn-link collapsed" data-toggle="collapse"
-								data-target="#collapseThree" aria-expanded="false"
-								aria-controls="collapseThree">Filtar Por Categorias</button>
-						</h5>
-					</div>
-					<div id="collapseThree" class="collapse"
-						aria-labelledby="headingThree" data-parent="#accordion">
-						<div class="card-body">
-							<ul class="list-group">
-
-								<c:forEach items="${categorias}" var="categoria">
-									<li class="list-group-item"><a
-										href="${s:mvcUrl('IC#buscarPorCategoria').arg(0, categoria.id).build()}">${categoria.nome}</a>
-									</li>
-								</c:forEach>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
+				<c:forEach items="${categorias}" var="categoria">
+					<li class="text-capitalize pl-2"><small><a class="text-secondary"
+						href="${s:mvcUrl('IC#buscarPorCategoria').arg(0, categoria.id).build()}">${categoria.nome}</a></small>
+					</li>
+				</c:forEach>
+			</ul>
 
 
-			<div class="bg-dark mt-2 d-block w-100 text-center text-white">Administrativo</div>
+			<div class="mt-5 d-block w-100 ">Administrativo</div>
 			<div
 				class="d-flex flex-column align-items-center align-items-sm-start px-0 pt-2 text-white min-vh-100">
 
@@ -137,22 +102,23 @@
 								<c:forEach items="${livros}" var="r">
 
 									<!-- Card Produto -->
-									<a style="text-decoration:none ;" href="${s:mvcUrl('IC#detalhesLivro').arg(0, r.id).build()}">
-									<div class="card card-1 shadow-1">	
+									<a style="text-decoration: none;"
+										href="${s:mvcUrl('IC#detalhesLivro').arg(0, r.id).build()}">
+										<div class="card card-1 shadow-1">
 											<img class="card-img-top m-2 card-img" src="/${r.foto}"
-											alt="Card image cap">
-										
-										<div class="card-body">
-											<h5 class="card-title text-capitalize">${r.titulo}</h5>
-											<p class="card-text">Valor R$ ${r.preco}</p>
-											<p class="card-text">
-												<small class="text-muted text-capitalize">Autor:
-													${r.autor.nome}</small> &nbsp;&nbsp;&nbsp; <small
-													class="text-muted text-capitalize">Editora:
-													${r.editora.descricao}</small>
-											</p>
+												alt="Card image cap">
+
+											<div class="card-body">
+												<h5 class="card-title text-capitalize text-truncate">${r.titulo}</h5>
+												<p class="card-text">Valor R$ ${r.preco}</p>
+												<p class="card-text">
+													<small class="text-muted text-capitalize">Autor:
+														${r.autor.nome}</small> &nbsp;&nbsp;&nbsp; <small
+														class="text-muted text-capitalize">Editora:
+														${r.editora.descricao}</small>
+												</p>
+											</div>
 										</div>
-									</div>
 									</a>
 									<!-- Card Produto -->
 								</c:forEach>

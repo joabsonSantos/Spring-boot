@@ -70,19 +70,17 @@
 							</div>
 						</div>
 						<div class="row d-flex justify-content-space-around mt-5">
-							<div class="col-8 text-justify">
+							<div class="col-8 text-justify mb-3">
 								<h5>Descrição:</h5>
-								<p class="text-wrap"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
-									deleniti laudantium
-									hic magni sunt temporibus dolore reprehenderit exercitationem, perferendis tempora
-									itaque inventore earum reiciendis eum eos voluptas expedita tenetur eligendi.
+								<p class="text-wrap">
+									${livro.descricao} 
 								</p>
 							</div>
 							<div class="col-4 d-flex align-items-center justify-content-center">
 								<h2 class="font-weight-bold text-center">R$ ${livro.preco*carrinho.getQtdLivroTela(livro)}</h2>
 							</div>
-							<div class="row d-flex align-items-center">
-								<div class="col-auto">
+							<div class="row m-3 w-100 d-flex  align-items-center justify-content-center">
+								<div class="col-md-6 p-sm-2 d-flex align-items-center justify-content-center">
 
 									<form:form id="form" servletRelativeAction="/carrinho/atualizar" method="POST" class="input-group">
 										<div class="input-group-prepend">
@@ -102,7 +100,7 @@
 									
 								</div>
 
-								<div class="col">
+								<div class="col col-sm-12 col-md-auto">
 									<a class="btn btn-danger"
 									href="${s:mvcUrl('CCC#excluirLivro').arg(0, livro.id).build()}">Excluir</a>
 								</div>
