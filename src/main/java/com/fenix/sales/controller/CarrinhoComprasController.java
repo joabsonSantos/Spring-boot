@@ -71,5 +71,12 @@ public class CarrinhoComprasController {
 		modelAndView.addObject("livros", carrinho.getItens());
 		return modelAndView;
 	}
+	
+	
+	@GetMapping("/pagamento")
+	public ModelAndView pagamento(Livro livro) {
+		modelAndView.setViewName("pagamento");
+		return modelAndView;
+	}
 
 }

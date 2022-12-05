@@ -29,7 +29,7 @@
 				<div class="font-weight-normal fs-5">Subtotal (${itens} itens): &nbsp; <span class="font-weight-bold" style="font-size:1.65em"> R$ ${total}</span></div> 
 			</div>
 			<div class="col-md-4 d-flex align-items-center justify-content-center">
-				<a style="text-decoration:none" class="btn-lg text-dark bg-warning btn-block text-decoration-none" href="#">Fechar Pedido</a>
+				<a style="text-decoration:none" class="btn-lg text-dark bg-warning btn-block text-decoration-none" href="/carrinho/pagamento">Fechar Pedido</a>
 			</div>
 			</div>
 		</div>	
