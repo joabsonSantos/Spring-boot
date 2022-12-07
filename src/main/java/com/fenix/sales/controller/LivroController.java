@@ -65,24 +65,35 @@ public class LivroController {
 	}
 	
 	@GetMapping("/admin/ExcluirLivro/{id}")
-	public ModelAndView ExcluirLivro(@PathVariable Long id, RedirectAttributes redirectAttributes) {
-	    modelAndView.setViewName("redirect:/admin/Livro");
+	public ModelAndView excluirLivro(@PathVariable Long id) {
+	    modelAndView.setViewName("redirect:/admin/livros");
 	    Livro livro = livroRepository.findById(id).get();
 	    livro.setStatus(false);
         livroRepository.save(livro);
 		return modelAndView;
 	}
 	
+	@GetMapping("/admin/ativarLivro/{id}")
+	public ModelAndView ativarLivro(@PathVariable Long id) {
+	    modelAndView.setViewName("redirect:/admin/livros");
+	    Livro livro = livroRepository.findById(id).get();
+	    livro.setStatus(true);
+        livroRepository.save(livro);
+		return modelAndView;
+	}
+	
 
 	@GetMapping("/editarLivro/{id}")
-	public ModelAndView editarLivro(@PathVariable("id") Long id, RedirectAttributes redirectAttributes) {
-		ModelAndView modelAndView = new ModelAndView("admin/atualizarLivro");
+	public ModelAndView editarLivro(@PathVariable("id") Long id,Livro livro) {
+		modelAndView.setViewName("admin/atualizarLivro");
+		modelAndView.addObject("livro", livroRepository.findById(id).get());
+		System.out.println(livroRepository.findById(id).get());
 		return modelAndView;
 	}
 
 	@PostMapping("/editarLivro")
-	public ModelAndView update (Livro livro, RedirectAttributes redirectAttributes) {
-		ModelAndView modelAndView = new ModelAndView("redirect:/admin/listLivros");
+	public ModelAndView update(@PathVariable("id") Long id,Livro livro) {
+		modelAndView.setViewName("redirect:/admin/listLivros");
 		return modelAndView;
 	}
 

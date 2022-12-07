@@ -58,19 +58,24 @@
 										<td>${reg.status}</td>
 										<td>${reg.categoria.nome}</td>
 										
-										<td><button class="btn-edite"></button></td>
+										<td><button class="btn-edite">
+											<a class="p-5" href="${s:mvcUrl('LC#editarLivro').arg(0, reg.id).build()}"></a>
+										</button>
+											
+										
+										</td>
 
 										<c:if test="${reg.status}">
 											<td>
-											<a class="btn-excluir">
-<%-- 												href="${s:mvcUrl('CC#ExcluirCategoria').arg(0, reg.id).build()}"> --%>
+											<a class="btn-excluir"
+												href="${s:mvcUrl('LC#excluirLivro').arg(0, reg.id).build()}">
 												
 												Desativar</a>
 											</td>
 										</c:if>
 										<c:if test="${!reg.status}">
-											<td><a class="btn-excluir">
-<%-- 												href="${s:mvcUrl('CC#AtivarCategoria').arg(0, reg.id).build()}"> --%>
+											<td><a class="btn-excluir"
+												href="${s:mvcUrl('LC#ativarLivro').arg(0, reg.id).build()}">
 												
 												Ativar</a>
 											</td>
@@ -105,19 +110,19 @@
 
 								<label class="mt-3">Autor:</label>
 								<form:select path="autor" class="form-control mt-3">
-									<form:option value="NONE"> -- SELECT--</form:option>
+									<form:option value=""> -- SELECT--</form:option>
 									<form:options items="${autores}" itemLabel="nome" />
 								</form:select>
 
 								<label class="mt-3">Editora:</label>
 								<form:select path="editora" class="form-control mt-3">
-									<form:option value="NONE"> -- SELECT--</form:option>
+									<form:option value=""> -- SELECT--</form:option>
 									<form:options items="${editoras}" itemLabel="descricao" />
 								</form:select>
 
 								<label class="mt-3">Categoria:</label>
 								<form:select path="categoria" class="form-control mt-3">
-									<form:option value="NONE"> -- SELECT--</form:option>
+									<form:option value=""> -- SELECT--</form:option>
 									<form:options items="${categorias}" itemLabel="nome" />
 								</form:select>
 									
