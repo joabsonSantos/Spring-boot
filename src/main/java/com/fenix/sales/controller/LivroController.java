@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fenix.sales.entity.Livro;
 import com.fenix.sales.infra.FileSaver;
@@ -92,9 +91,53 @@ public class LivroController {
 	}
 
 	@PostMapping("/editarLivro")
-	public ModelAndView update(@PathVariable("id") Long id,Livro livro) {
-		modelAndView.setViewName("redirect:/admin/listLivros");
+	public ModelAndView updateLivro(MultipartFile foto1, Livro livro) {
+		modelAndView.setViewName("redirect:/admin/livros");
+		Livro l = livroRepository.findById(livro.getId()).get();
+		l.setAutor(livro.getAutor());
+		l.setCategoria(livro.getCategoria());
+		l.setDescricao(livro.getDescricao());
+		l.setDestaque(livro.isDestaque());
+		l.setEditora(livro.getEditora());
+		l.setPaginas(livro.getPaginas());
+		l.setPreco(livro.getPreco());
+		l.setStatus(livro.isStatus());
+		l.setTitulo(livro.getTitulo());
+		
+		
+		if(!foto1.isEmpty()) {
+			filesaver.remove(livro.getFoto());
+			String foto = filesaver.write("imagens", foto1);
+			l.setFoto(foto);
+		}
+		
+		livroRepository.save(l);
 		return modelAndView;
 	}
+	
+	
+//	@PostMapping("/Edicao")
+//	public ModelAndView Update(Pessoa p, MultipartFile imagem) {
+//
+//		Pessoa pessoa = service.finById(p.getId());
+//		pessoa.setNome(p.getNome());
+//		pessoa.setIdade(p.getIdade());
+//		pessoa.setCelular(p.getCelular());
+//		pessoa.setDocumento(p.getDocumento());
+//		
+//		if (!imagem.isEmpty()) {
+//			file.remove(pessoa.getFoto());
+//			String foto = file.write("imagens-pessoas", imagem);
+//			pessoa.setFoto(foto);
+//		}
+//		
+//		service.save(pessoa);
+//		modelAndView.setViewName("redirect:/");
+//		modelAndView.addObject("status", "sucesso");
+//		modelAndView.addObject("mensagem", "Editado com sucesso!!");
+//		modelAndView.addObject("s", "diseble");
+//		return modelAndView;
+//	}
+	
 
 }

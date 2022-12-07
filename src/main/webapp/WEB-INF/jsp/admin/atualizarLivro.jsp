@@ -23,7 +23,7 @@
 			<div class="row">
 				<div class="container bg-light rounded shadow-1">
 					<h3 class="text-center p-2">Edição de Livros</h3>
-					<form:form action="${s:mvcUrl('LC#cadastrarLivro').build()}"
+					<form:form action="${s:mvcUrl('LC#updateLivro').build()}"
 						method="POST" modelAttribute="livro" enctype="multipart/form-data">
 
 						<div class="row m-5 d-flex justify-content-center shadow-1">

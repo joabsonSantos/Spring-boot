@@ -59,7 +59,7 @@
 										<td>${reg.categoria.nome}</td>
 										
 										<td><button class="btn-edite">
-											<a class="p-5" href="${s:mvcUrl('LC#editarLivro').arg(0, reg.id).build()}"></a>
+											<a class="px-5" href="${s:mvcUrl('LC#editarLivro').arg(0, reg.id).build()}"></a>
 										</button>
 											
 										
