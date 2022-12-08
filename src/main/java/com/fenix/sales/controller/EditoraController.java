@@ -86,8 +86,8 @@ public class EditoraController {
 	}
 
 	@GetMapping("/admin/EditarEditora/{id}")
-	public ModelAndView EditarEditora(@PathVariable Integer id, RedirectAttributes redirectAttributes) {
-		modelAndView.setViewName("admin/editoras");
+	public ModelAndView EditarEditora(@PathVariable Integer id) {
+		modelAndView.setViewName("admin/atualizarEditora");
 		modelAndView.addObject("editoras", EditoraRepository.findById(id).get());
 		return modelAndView;
 	}

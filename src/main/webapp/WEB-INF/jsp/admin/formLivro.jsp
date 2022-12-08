@@ -100,13 +100,13 @@
 							<div class="col-sm-12 col-md-6 p-2 ">
 
 								<label class="mt-3">Titulo:</label>
-								<form:input class="form-control" path="titulo" />
+								<form:input class="form-control" path="titulo" required="required"/>
 								
 								<label class="mt-3">Descrição:</label>
-								<form:input class="form-control" path="descricao" />
+								<form:input class="form-control" path="descricao" required="required"/>
 
 								<label class="mt-3">Páginas:</label>
-								<form:input class="form-control" path="paginas" />
+								<form:input class="form-control" path="paginas" required="required"/>
 
 								<label class="mt-3">Autor:</label>
 								<form:select path="autor" class="form-control mt-3">
@@ -128,7 +128,7 @@
 									
 								<label class="mt-3" for="foto1">Foto:</label> 
 								<input type="file" class="form-control"
-									name="foto1" />
+									name="foto1" required="required"/>
 									 
 								<label class="mt-3">Preço:</label>
 								<form:input class="form-control" path="preco" required="required" value="100"/>

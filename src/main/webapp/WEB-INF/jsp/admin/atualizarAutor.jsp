@@ -8,23 +8,23 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/resources/css/index.css">
-<title>Atualizar Categoria</title>
+<title>Atualizar Autor</title>
 </head>
 <body>
 	<%@ include file="header.jsp"%>
 	<div class="container bg-light mt-4 rounded shadow-1 mb-4">
 		<div class="row">
 			<div class="container-fluid">
-			<h1 class="text-center p-2">Atualizar Categoria</h1>
-				<form:form action="${s:mvcUrl('CC#UpdateCategoria').build()}"
-					method="POST" modelAttribute="categorias">
+			<h1 class="text-center p-2">Atualizar Autor</h1>
+				<form:form action="${s:mvcUrl('AC#UpdateAutor').build()}"
+					method="POST" modelAttribute="autores">
 					<div class="row m-5 d-flex justify-content-center shadow-1">
 						<div class="col-sm-12 col-md-6 p-2 ">
 
 							<form:input type="hidden" path="id" />
 
 							<label for="nome">Nome:</label>
-							<form:input path="nome" class="form-control" value="${categorias.nome}" />
+							<form:input path="nome" class="form-control" value="${autores.nome}" />
 
 <%-- 							<form:select path="status" class="form-control mt-3"> --%>
 <%-- 								<form:option value="true" label="Ativo" /> --%>

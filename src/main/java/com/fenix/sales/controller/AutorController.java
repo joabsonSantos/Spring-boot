@@ -61,8 +61,8 @@ public class AutorController {
 	}
 
 	@GetMapping("/admin/EditarAutor/{id}")
-	public ModelAndView EditarAutor(@PathVariable Long id, RedirectAttributes redirectAttributes) {
-		modelAndView.setViewName("redirect:/admin/autores");
+	public ModelAndView EditarAutor(@PathVariable Long id) {
+		modelAndView.setViewName("admin/atualizarAutor");
 		modelAndView.addObject("autores", autorRepository.findById(id).get());
 		return modelAndView;
 	}

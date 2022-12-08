@@ -43,13 +43,13 @@ public class LivroController {
 	
 	@GetMapping("/admin/cadastrarLivros")
 	public ModelAndView livros(Livro livro) {
-		ModelAndView modelAndView = new ModelAndView("/admin/livros");
+		modelAndView.setViewName("/admin/livros");
 		return modelAndView;
 	}
 	
 	@PostMapping("/admin/cadastrarLivro")
 	public ModelAndView cadastrarLivro(MultipartFile foto1, Livro livro) {
-		ModelAndView modelAndView = new ModelAndView("redirect:/admin/livros");	
+		modelAndView.setViewName("redirect:/admin/livros");	
 		String foto = filesaver.write("imagens", foto1);
 		System.out.println(foto);
 		livro.setFoto(foto);
@@ -59,7 +59,7 @@ public class LivroController {
 	
 	@GetMapping("/admin/listLivros")
 	public ModelAndView listarLivro() {
-		ModelAndView modelAndView = new ModelAndView("admin/listLivros");
+		modelAndView.setViewName("admin/listLivros");
 		return modelAndView;
 	}
 	
@@ -115,29 +115,6 @@ public class LivroController {
 		return modelAndView;
 	}
 	
-	
-//	@PostMapping("/Edicao")
-//	public ModelAndView Update(Pessoa p, MultipartFile imagem) {
-//
-//		Pessoa pessoa = service.finById(p.getId());
-//		pessoa.setNome(p.getNome());
-//		pessoa.setIdade(p.getIdade());
-//		pessoa.setCelular(p.getCelular());
-//		pessoa.setDocumento(p.getDocumento());
-//		
-//		if (!imagem.isEmpty()) {
-//			file.remove(pessoa.getFoto());
-//			String foto = file.write("imagens-pessoas", imagem);
-//			pessoa.setFoto(foto);
-//		}
-//		
-//		service.save(pessoa);
-//		modelAndView.setViewName("redirect:/");
-//		modelAndView.addObject("status", "sucesso");
-//		modelAndView.addObject("mensagem", "Editado com sucesso!!");
-//		modelAndView.addObject("s", "diseble");
-//		return modelAndView;
-//	}
-	
+
 
 }
