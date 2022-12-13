@@ -26,7 +26,8 @@ public class CarrinhoComprasController {
 	LivroRepository livroRepository;
 	@Autowired
 	Carrinho carrinho;
-
+	
+	
 	@GetMapping
 	public ModelAndView carrinho(Livro livro) {
 		modelAndView.setViewName("carrinho");
@@ -75,7 +76,17 @@ public class CarrinhoComprasController {
 	
 	@GetMapping("/pagamento")
 	public ModelAndView pagamento(Livro livro) {
+		modelAndView.addObject("total", carrinho.totalCarrinho());
+		modelAndView.addObject("itens", carrinho.getItens().size());
+		modelAndView.addObject("livros", carrinho.getItens());
 		modelAndView.setViewName("pagamento");
+		return modelAndView;
+	}
+	
+	@GetMapping("/chekout")
+	public ModelAndView finalize(Livro livro) {
+		modelAndView.setViewName("redirect:/index");
+		carrinho.clear();
 		return modelAndView;
 	}
 
