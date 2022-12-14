@@ -86,6 +86,13 @@ public class CarrinhoComprasController {
 	@GetMapping("/chekout")
 	public ModelAndView finalize(Livro livro) {
 		modelAndView.setViewName("redirect:/index");
+//		carrinho.clear();
+		return modelAndView;
+	}
+	
+	@GetMapping("/finish")
+	public ModelAndView comprovante(Livro livro) {
+		modelAndView.setViewName("finish");
 		carrinho.clear();
 		return modelAndView;
 	}

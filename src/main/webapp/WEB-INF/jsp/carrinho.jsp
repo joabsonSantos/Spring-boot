@@ -82,21 +82,17 @@
 							<div class="row m-3 w-100 d-flex  align-items-center justify-content-center">
 								<div class="col-md-6 p-sm-2 d-flex align-items-center justify-content-center">
 
-									<form:form id="form" servletRelativeAction="/carrinho/atualizar" method="POST" class="input-group">
+									<form:form id="form" servletRelativeAction="/carrinho/atualizar" method="POST" class="input-group form">
 										<div class="input-group-prepend">
 											<div class="input-group-text">Qtd</div>
 										</div>
 
 										<input type="hidden" name="idLivro" value="${livro.id}" />
-										<input id="qtd" class="form-control" type="number" min ="1" name="quantidade" value="${carrinho.getQtdLivroTela(livro)}" onchange="myFunction()"/>
-<!-- 										<input class="btn btn-success" value="atualizar" type="submit" /> -->
+										<input id="qtd" class="form-control" type="number" min ="1" name="quantidade" value="${carrinho.getQtdLivroTela(livro)}" />
+										<input class="btn btn-success" value="atualizar" type="submit" />
 									</form:form>
 									
-									
-<%-- 									<form:form class="input-group" action="${s:mvcUrl('IC#filtrarTitulo').build()}" method="POST" modelAttribute="livro"> --%>
-<%-- 										<form:input class="form-control me-2" path="titulo" type="search" placeholder="Pesquisar" aria-label="pesquisar" /> --%>
-<!-- 										<button class="bg-success bg-gradiente btn  btn-outline-success text-light" type="submit">Pesquisar</button>	 -->
-<%-- 									</form:form> --%>
+								
 									
 								</div>
 
@@ -125,10 +121,14 @@
 
 	
 	<script type="text/javascript">
+	//onchange="myFunction()"
 		function myFunction() {
-			//let input = document.getElementById('qtd');
 			let form = document.getElementById('form');
-			form.submit();			
+			//let form = document.getElementsByClassName('form');
+// 			for(let item in form){
+// 				item.submit();
+// 			}
+			form.submit();
 		}
 	</script>
 

@@ -194,7 +194,7 @@
                 </div>
               </div>
               <hr class="mb-4">
-              <button class="btn btn-primary btn-lg btn-block" type="submit" onclick="window.location.href='/carrinho/chekout'" >Finalizar</button>
+              <button class="btn btn-primary btn-lg btn-block" type="submit" onclick="window.location.href='/carrinho/finish'" >Finalizar</button>
 
             </form>
 
@@ -218,8 +218,8 @@
           <ul class="list-group mb-3 z-depth-1">
             <li class="list-group-item d-flex justify-content-between lh-condensed">
               <div>
-                <h6 class="my-0">${livro.titulo}</h6>
-<%--                 <small class="text-muted">Brief description</small> --%>
+                <h6 class="my-0 text-truncate" style="max-width: 200px;">${livro.titulo}</h6>
+                <small class="text-muted">Quantidade ${carrinho.getQtdLivroTela(livro)}</small>
               </div>
               <span class="text-muted">R$ ${livro.preco*carrinho.getQtdLivroTela(livro)}</span>
             </li>
@@ -230,6 +230,8 @@
 <!--               </div> -->
 <%--               <span class="text-success">-$5</span> --%>
 <!--             </li> -->
+           
+           </c:forEach>
             <li class="list-group-item d-flex justify-content-between">
               <span>Total</span>
               <strong>R$ ${total}</strong>
@@ -242,12 +244,12 @@
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Promo code" aria-label="Recipient's username" aria-describedby="basic-addon2">
               <div class="input-group-append">
-                <button class="btn btn-secondary btn-md waves-effect m-0" type="button">Redeem</button>
+                <button class="btn btn-secondary btn-md waves-effect m-0" type="button">Aplicar</button>
               </div>
             </div>
           </form>
           <!-- Promo code -->
-		</c:forEach>
+		
         </div>
         <!--Grid column-->
 
